@@ -1,0 +1,17 @@
+#include <iostream>
+#include <list>
+#include <vector>
+#include <string>
+using namespace std;
+
+
+int main(void)
+{
+  list<basic_string<char> > my_tmp;
+
+  vector<basic_string<char> > my_vect;
+
+
+  my_vect.assign(my_tmp.begin(), my_tmp.end());
+  cout << my_vect.size() << endl;
+}
