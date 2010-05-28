@@ -1,0 +1,3 @@
+package require Expect
+
+spawn rlogin rotims00009

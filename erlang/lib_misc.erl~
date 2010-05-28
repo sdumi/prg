@@ -1,0 +1,2 @@
+-module(lib_misc).
+-export([for/3]).

@@ -1,0 +1,18 @@
+code {
+    padding: 0;
+    font-size: 100%;
+    background-color: #f8f8ff;
+    border: none;
+}
+pre {
+    padding: 0;
+    font-size: 100%;
+    background-color: #f8f8ff;
+    border: none;
+}
+pre code {
+    padding: 0;
+    font-size: 100%;
+    background-color: #f8f8ff;
+    border: none;
+}

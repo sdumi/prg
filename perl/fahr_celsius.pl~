@@ -1,0 +1,8 @@
+#!/local/app/bin/perl -w
+
+print "Please enter a Fahrenheit degree > ";
+chomp ($fah = <STDIN>);
+
+$cel = ($fah - 32) / 1.8;
+
+print "The Celsius equivalent of $fah degrees Fahrenheit is $cel\n"

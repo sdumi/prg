@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+class Foo
+{
+public:
+  Foo() { cout << "Foo::Foo()" << endl; }
+  Foo& operator=(const Foo&) { cout << "Foo::operator=(const Foo&)" << endl; }
+private:
+  Foo(cons Foo& b) { *this = b; }
+};
+
+int main()
+{
+  Foo foo;
+  cout << "we'll try the assignment operator now..." << endl;
+  foo = Foo();
+}

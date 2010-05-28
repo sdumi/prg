@@ -1,0 +1,54 @@
+;; Object semantic.cache
+;; SEMANTICDB Tags save file
+(semanticdb-project-database "semantic.cache"
+  :file "semantic.cache"
+  :tables (list 
+   (semanticdb-table "string_find.cc"
+    :file "string_find.cc"
+    :pointmax 286
+    :major-mode 'c++-mode
+    :tokens '(("iostream" include t nil nil [1 20]) ("string" include t nil nil [21 38]) ("main" function ("int") (("" variable "void" nil nil nil nil [70 75])) nil nil nil [61 284]))
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "select_demo.c"
+    :file "select_demo.c"
+    :pointmax 525
+    :major-mode 'c-mode
+    :tokens '(("stdio.h" include t nil nil [39 57]) ("sys/time.h" include t nil nil [58 79]) ("sys/types.h" include t nil nil [80 102]) ("unistd.h" include t nil nil [103 122]) ("STDIN" variable nil nil ((const . t)) nil nil [124 139]) ("main" function ("int") (("" variable "void" nil nil nil nil [189 194])) nil nil nil [180 523]))
+    )
+   (semanticdb-table "stl_memory_test.cpp"
+    :file "stl_memory_test.cpp"
+    :pointmax 601
+    :major-mode 'c++-mode
+    :tokens '(("iostream" include t nil nil [1 20]) ("list" include t nil nil [21 36]) ("sys/time.h" include t nil nil [38 59]) ("sys/types.h" include t nil nil [60 82]) ("unistd.h" include t nil nil [83 102]) ("STDIN" variable nil nil ((const . t)) nil nil [125 140]) ("Big" type "class" (("private" label ((reparse-symbol . classsubparts)) [154 162]) ("_40K" variable "int" nil ((dereference . 1)) nil nil [165 183]) ("public" label ((reparse-symbol . classsubparts)) [185 192]) ("Big" function "int" (("i" variable "int" nil nil nil nil [199 205])) nil nil ((reparse-symbol . classsubparts)) [195 242]) ("Big" function "void" nil ((destructor . t)) nil ((reparse-symbol . classsubparts)) [245 258])) nil nil nil nil [142 261]) ("main" function ("int") (("" variable "void" nil nil nil nil [273 278])) nil nil nil [264 600]))
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "float_print.cc"
+    :file "float_print.cc"
+    :pointmax 158
+    :major-mode 'c++-mode
+    :tokens 'nil
+    )
+   (semanticdb-table "times.c"
+    :file "times.c"
+    :pointmax 536
+    :major-mode 'c-mode
+    :tokens '(("unistd.h" include t nil nil [1 20]) ("sys/times.h" include t nil nil [21 43]) ("main" function ("void") (("" variable "void" nil nil nil nil [56 61])) nil nil nil [45 535]))
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "if_test.cc"
+    :file "if_test.cc"
+    :pointmax 694
+    :major-mode 'c++-mode
+    :tokens '(("iostream" include t nil nil [1 20]) ("main" function ("int") (("" variable "void" nil nil nil nil [53 58])) nil nil nil [44 693]))
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "aiocp.c"
+    :file "aiocp.c"
+    :pointmax 11930
+    :major-mode 'c-mode
+    :tokens '(("_GNU_SOURCE" variable nil nil ((const . t)) nil nil [776 799]) ("unistd.h" include t nil nil [798 817]) ("stdio.h" include t nil nil [818 836]) ("sys/types.h" include t nil nil [837 859]) ("sys/stat.h" include t nil nil [860 881]) ("sys/param.h" include t nil nil [882 904]) ("fcntl.h" include t nil nil [905 923]) ("errno.h" include t nil nil [924 942]) ("stdlib.h" include t nil nil [943 962]) ("sys/select.h" include t nil nil [963 986]) ("aio.h" include t nil nil [1010 1026]) ("AIO_BLKSIZE" variable nil (nil) ((const . t)) nil nil [1029 1060]) ("AIO_MAXIO" variable nil nil ((const . t)) nil nil [1059 1079]) ("aio_blksize" variable "int" "AIO_BLKSIZE;" ((typemodifiers "static")) nil nil [1081 1118]) ("aio_maxio" variable "int" "AIO_MAXIO;" ((typemodifiers "static")) nil nil [1119 1152]) ("busy" variable "int" "0" ((typemodifiers "static")) nil nil [1154 1174]) ("tocopy" variable "int" "0" ((typemodifiers "static")) nil nil [1200 1222]) ("srcfd" variable "int" nil ((typemodifiers "static")) nil nil [1252 1269]) ("srcfd2" variable "int" nil ((typemodifiers "static")) nil nil [1284 1302]) ("dstfd" variable "int" "-1" ((typemodifiers "static")) nil nil [1342 1364]) ("dstfd2" variable "int" "-1" ((typemodifiers "static")) nil nil [1397 1420]) ("dstname" variable "char" "NULL;" ((const . t) (typemodifiers "static") (pointer . 1)) nil nil [1464 1498]) ("srcname" variable "char" "NULL;" ((const . t) (typemodifiers "static") (pointer . 1)) nil nil [1499 1533]) ("source_open_flag" variable "int" "O_RDONLY;" ((typemodifiers "static")) nil nil [1534 1573]) ("dest_open_flag" variable "int" "O_WRONLY;" ((typemodifiers "static")) nil nil [1606 1643]) ("no_write" variable "int" nil ((typemodifiers "static")) nil nil [1674 1694]) ("zero" variable "int" nil ((typemodifiers "static")) nil nil [1716 1732]) ("debug" variable "int" nil ((typemodifiers "static")) nil nil [1760 1777]) ("count_io_q_waits" variable "int" nil ((typemodifiers "static")) nil nil [1778 1806]) ("iocb_free" variable ("aiocb" type "struct" nil nil nil nil) nil ((pointer . 2)) nil nil [1849 1874]) ("iocb_free_count" variable "int" nil nil nil nil [1907 1927]) ("alignment" variable "int" "512" nil nil nil [1954 1974]) ("delay" variable ("timeval" type "struct" nil nil nil nil) nil nil nil nil [2000 2021]) ("init_iocb" function ("int") (("n" variable "int" nil nil nil nil [2062 2068]) ("iosize" variable "int" nil nil nil nil [2069 2080])) nil nil nil [2048 2631]) ("alloc_iocb" function ("aiocb" type "struct" nil nil nil nil) nil ((pointer . 1)) nil nil [2633 2736]) ("free_iocb" function ("void") (("io" variable ("aiocb" type "struct" nil nil nil nil) nil ((pointer . 1)) nil nil [2753 2770])) nil nil nil [2738 2810]) ("io_wait_run" function ("int") (("ctx" variable ("io_context_t" type "class") nil nil nil nil [2903 2920]) ("to" variable ("timespec" type "struct" nil nil nil nil) nil ((pointer . 1)) nil nil [2921 2941])) nil nil nil [2887 3461]) ("io_error" function ("void") (("func" variable "char" nil ((const . t) (pointer . 1)) nil nil [3510 3527]) ("rc" variable "int" nil nil nil nil [3528 3535])) ((typemodifiers "static")) nil nil [3489 3833]) ("wr_done" function ("void") (("ctx" variable ("io_context_t" type "class") nil nil nil nil [3926 3943]) ("iocb" variable ("aiocb" type "struct" nil nil nil nil) nil ((pointer . 1)) nil nil [3944 3964]) ("res" variable "long" nil nil nil nil [3965 3974]) ("res2" variable "long" nil nil nil nil [3975 3985])) ((typemodifiers "static")) nil nil [3906 4245]) ("rd_done" function ("void") (("ctx" variable ("io_context_t" type "class") nil nil nil nil [4353 4370]) ("iocb" variable ("aiocb" type "struct" nil nil nil nil) nil ((pointer . 1)) nil nil [4371 4390]) ("res" variable "long" nil nil nil nil [4391 4400]) ("res2" variable "long" nil nil nil nil [4401 4411])) ((typemodifiers "static")) nil nil [4333 5147]) ("usage" function ("void") nil nil nil nil [5149 5521]) ("scale_by_kmg" function ("long long") (("value" variable "long long" nil nil nil nil [5592 5608]) ("scale" variable "char" nil nil nil nil [5609 5620])) nil nil nil [5569 5837]) ("main" function ("int") (("argc" variable "int" nil nil nil nil [5848 5857]) ("argv" variable "char" nil ((pointer . 2)) nil nil [5858 5876])) nil nil nil [5839 11105]))
+    :unmatched-syntax 'nil
+    )
+   )
+  )

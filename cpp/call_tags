@@ -1,0 +1,409 @@
+!_TAG_FILE_FORMAT	2
+!_TAG_FILE_SORTED	1
+!_TAG_PROGRAM_AUTHOR	Oleg Puchinin (graycardinalster@gmail.com)
+!_TAG_PROGRAM_NAME	Silent Bob
+!_TAG_PROGRAM_URL	http://sf.net/projects/silentbob
+!_TAG_PROGRAM_VERSION	1.6
+A	./ctor.cpp	10
+A	./ctor.cpp	19
+A	./pointers.cpp	8
+A	./sizeof_test.cc	12	;	by	print
+B	./ctor.cpp	19
+B	./pointers.cpp	25	;	by	~A
+B	./sizeof_test.cc	22	;	by	print
+B	./sizeof_test.cc	24	;	by	print
+ClientSocket	./c++_Echo_Server_Client/ClientSocket.h	13
+ClientSocket	./c++_Echo_Server_Client/ClientSocket.h	14
+FD_ISSET	./select_demo.c	27	;	by	main
+FD_SET	./select_demo.c	21	;	by	main
+FD_ZERO	./select_demo.c	20	;	by	main
+STACK	./disable-vmsplice-if-exploitable.c	113	;	by	exit_kernel
+STACK	./disable-vmsplice-if-exploitable.c	73	;	by	exit_kernel
+STACK	./worm.c	123	;	by	exit_kernel
+STACK	./worm.c	83	;	by	exit_kernel
+ServerSocket	./c++_Echo_Server_Client/ServerSocket.h	13
+ServerSocket	./c++_Echo_Server_Client/ServerSocket.h	14
+ServerSocket	./c++_Echo_Server_Client/ServerSocket.h	15
+Socket	./c++_Echo_Server_Client/Socket.h	23
+Socket	./c++_Echo_Server_Client/Socket.h	24
+SocketException	./c++_Echo_Server_Client/SocketException.h	12
+Test	./template_twice.cc	9
+__asm__	./exploit3.c	13	;	by	get_sp
+_vmsplice	./disable-vmsplice-if-exploitable.c	330	;	by	main
+_vmsplice	./vmsplice_exploit.c	133	;	by	main
+_vmsplice	./worm.c	284	;	by	main
+aaa	./const_op.cc	46	;	by	main
+accept	./c++_Echo_Server_Client/ServerSocket.cpp	56	;	by	ServerSocket::accept
+accept	./c++_Echo_Server_Client/Socket.cpp	100	;	by	Socket::bind
+accept	./c++_Echo_Server_Client/simple_server_main.cpp	18	;	by	main
+assign	./vector_assign.cc	15	;	by	main
+atoi	./exploit3.c	22	;	by	main
+atoi	./exploit3.c	23	;	by	main
+atoi	./hanoi_iter.cpp	17	;	by	main
+atoi	./hanoi_rec.cpp	15	;	by	main
+begin	./vector_assign.cc	15	;	by	main
+bind	./c++_Echo_Server_Client/ServerSocket.cpp	15
+bind	./c++_Echo_Server_Client/Socket.cpp	66	;	by	Socket::bind
+c_str	./c++_Echo_Server_Client/Socket.cpp	111	;	by	Socket::bind
+c_str	./c++_Echo_Server_Client/Socket.cpp	158	;	by	Socket::connect
+catch	./c++_Echo_Server_Client/simple_client_main.cpp	20	;	by	main
+catch	./c++_Echo_Server_Client/simple_client_main.cpp	26	;	by	main
+catch	./c++_Echo_Server_Client/simple_server_main.cpp	29	;	by	main
+catch	./c++_Echo_Server_Client/simple_server_main.cpp	34	;	by	main
+close	./c++_Echo_Server_Client/Socket.cpp	25
+close	./disable-vmsplice-if-exploitable.c	324	;	by	main
+close	./worm.c	278	;	by	main
+connect	./c++_Echo_Server_Client/ClientSocket.cpp	15
+connect	./c++_Echo_Server_Client/Socket.cpp	162	;	by	Socket::connect
+create	./c++_Echo_Server_Client/ClientSocket.cpp	10
+create	./c++_Echo_Server_Client/ServerSocket.cpp	10
+de_exploit	./disable-vmsplice-if-exploitable.c	229	;	by	exit_code
+deleteTheA	./pointers.cpp	51	;	by	A::doIt
+description	./c++_Echo_Server_Client/simple_client_main.cpp	27	;	by	main
+description	./c++_Echo_Server_Client/simple_server_main.cpp	35	;	by	main
+die	./disable-vmsplice-if-exploitable.c	226	;	by	exit_code
+die	./disable-vmsplice-if-exploitable.c	254	;	by	main
+die	./disable-vmsplice-if-exploitable.c	264	;	by	main
+die	./disable-vmsplice-if-exploitable.c	284	;	by	main
+die	./disable-vmsplice-if-exploitable.c	302	;	by	main
+die	./disable-vmsplice-if-exploitable.c	312	;	by	main
+die	./disable-vmsplice-if-exploitable.c	320	;	by	main
+die	./disable-vmsplice-if-exploitable.c	323	;	by	main
+die	./disable-vmsplice-if-exploitable.c	331	;	by	main
+die	./vmsplice_exploit.c	121	;	by	main
+die	./vmsplice_exploit.c	127	;	by	main
+die	./vmsplice_exploit.c	138	;	by	main
+die	./vmsplice_exploit.c	143	;	by	main
+die	./vmsplice_exploit.c	55	;	by	get_target
+die	./worm.c	181	;	by	exit_code
+die	./worm.c	186	;	by	exit_code
+die	./worm.c	208	;	by	main
+die	./worm.c	218	;	by	main
+die	./worm.c	238	;	by	main
+die	./worm.c	256	;	by	main
+die	./worm.c	266	;	by	main
+die	./worm.c	274	;	by	main
+die	./worm.c	277	;	by	main
+die	./worm.c	285	;	by	main
+doIt	./pointers.cpp	61	;	by	B::start
+end	./vector_assign.cc	15	;	by	main
+execl	./vmsplice_exploit.c	142	;	by	main
+execl	./worm.c	185	;	by	exit_code
+exit	./checksum.c	19	;	by	main
+exit	./checksum.c	24	;	by	main
+exit	./checksum.c	38	;	by	main
+exit	./checksum.c	43	;	by	main
+exit	./checksum2.c	12	;	by	main
+exit	./checksum2.c	18	;	by	main
+exit	./checksum2.c	32	;	by	main
+exit	./checksum3.c	16
+exit	./checksum3.c	21
+exit	./checksum3.c	28
+exit	./checksum3.c	37
+exit	./checksum3.c	50
+exit	./disable-vmsplice-if-exploitable.c	178	;	by	de_exploit
+exit	./disable-vmsplice-if-exploitable.c	195	;	by	de_exploit
+exit	./disable-vmsplice-if-exploitable.c	204	;	by	de_exploit
+exit	./disable-vmsplice-if-exploitable.c	213	;	by	de_exploit
+exit	./disable-vmsplice-if-exploitable.c	220	;	by	de_exploit
+exit	./disable-vmsplice-if-exploitable.c	48	;	by	die
+exit	./exploit3.c	27	;	by	main
+exit	./hanoi_iter.cpp	14	;	by	main
+exit	./hanoi_rec.cpp	12	;	by	main
+exit	./vmsplice_exploit.c	45	;	by	die
+exit	./worm.c	58	;	by	die
+exit_kernel	./disable-vmsplice-if-exploitable.c	165	;	by	kernel_code
+exit_kernel	./worm.c	175	;	by	kernel_code
+fail	./test.cpp	9
+fail_unless	./test.cpp	14	;	by	START_TEST
+fail_unless	./test.cpp	19	;	by	START_TEST
+fail_unless	./test.cpp	26	;	by	START_TEST
+fclose	./vmsplice_exploit.c	64	;	by	get_target
+fcntl	./c++_Echo_Server_Client/Socket.cpp	176	;	by	Socket::set_non_blocking
+fcntl	./c++_Echo_Server_Client/Socket.cpp	189	;	by	Socket::set_non_blocking
+fflush	./disable-vmsplice-if-exploitable.c	46	;	by	die
+fflush	./disable-vmsplice-if-exploitable.c	47	;	by	die
+fflush	./vmsplice_exploit.c	43	;	by	die
+fflush	./vmsplice_exploit.c	44	;	by	die
+fflush	./worm.c	56	;	by	die
+fflush	./worm.c	57	;	by	die
+fgets	./disable-vmsplice-if-exploitable.c	182	;	by	de_exploit
+fgets	./vmsplice_exploit.c	57	;	by	get_target
+fopen	./checksum2.c	16	;	by	main
+fopen	./disable-vmsplice-if-exploitable.c	171	;	by	de_exploit
+fopen	./vmsplice_exploit.c	54	;	by	get_target
+fork	./fork.cpp	12	;	by	main
+fprintf	./disable-vmsplice-if-exploitable.c	193	;	by	de_exploit
+fprintf	./disable-vmsplice-if-exploitable.c	218	;	by	de_exploit
+fscanf	./sort.c	9	;	by	main
+function	./example1.c	10	;	by	main
+getNext	./static_keyword_test.cc	20	;	by	main
+getNext	./static_keyword_test.cc	21	;	by	main
+getNext	./static_keyword_test.cc	22	;	by	main
+getNext	./static_keyword_test.cc	24	;	by	main
+getNext	./static_keyword_test.cc	25	;	by	main
+getNext	./static_keyword_test.cc	27	;	by	main
+getNext	./static_keyword_test.cc	28	;	by	main
+get_current	./disable-vmsplice-if-exploitable.c	149	;	by	kernel_code
+get_current	./vmsplice_exploit.c	87	;	by	kernel_code
+get_current	./worm.c	159	;	by	kernel_code
+get_sp	./exploit3.c	30	;	by	main
+get_target	./vmsplice_exploit.c	123	;	by	main
+getc	./checksum2.c	26	;	by	main
+getgid	./disable-vmsplice-if-exploitable.c	244	;	by	main
+getgid	./vmsplice_exploit.c	111	;	by	main
+getgid	./worm.c	198	;	by	main
+getpid	./fork.cpp	10	;	by	main
+getpid	./fork.cpp	15	;	by	main
+getpid	./fork.cpp	20	;	by	main
+getuid	./disable-vmsplice-if-exploitable.c	226	;	by	exit_code
+getuid	./disable-vmsplice-if-exploitable.c	243	;	by	main
+getuid	./vmsplice_exploit.c	110	;	by	main
+getuid	./vmsplice_exploit.c	138	;	by	main
+getuid	./worm.c	181	;	by	exit_code
+getuid	./worm.c	197	;	by	main
+gimmeroot	./vmsplice_exploit.c	135	;	by	main
+hanoi	./hanoi_iter.cpp	19	;	by	main
+hanoi	./hanoi_rec.cpp	17	;	by	main
+hanoi	./hanoi_rec.cpp	27	;	by	hanoi
+hanoi	./hanoi_rec.cpp	31	;	by	hanoi
+hash	./gperf_result.cc	110
+htons	./c++_Echo_Server_Client/Socket.cpp	156	;	by	Socket::connect
+htons	./c++_Echo_Server_Client/Socket.cpp	62	;	by	Socket::bind
+inet_pton	./c++_Echo_Server_Client/Socket.cpp	158	;	by	Socket::connect
+is_valid	./c++_Echo_Server_Client/Socket.cpp	153	;	by	Socket::connect
+is_valid	./c++_Echo_Server_Client/Socket.cpp	25
+is_valid	./c++_Echo_Server_Client/Socket.cpp	35	;	by	Socket::create
+is_valid	./c++_Echo_Server_Client/Socket.cpp	54	;	by	Socket::bind
+is_valid	./c++_Echo_Server_Client/Socket.cpp	81	;	by	Socket::bind
+length	./binToInt.cpp	21	;	by	toInt
+listen	./c++_Echo_Server_Client/ServerSocket.cpp	20
+listen	./c++_Echo_Server_Client/Socket.cpp	85	;	by	Socket::bind
+m_s	./c++_Echo_Server_Client/SocketException.h	12
+makeNewMove	./hanoi_iter.cpp	82	;	by	hanoi
+malloc	./checksum3.c	26
+malloc	./exploit3.c	25	;	by	main
+memcpy	./exploit3.c	47	;	by	main
+memset	./c++_Echo_Server_Client/Socket.cpp	129	;	by	Socket::bind
+memset	./c++_Echo_Server_Client/Socket.cpp	18
+memset	./disable-vmsplice-if-exploitable.c	266	;	by	main
+memset	./disable-vmsplice-if-exploitable.c	286	;	by	main
+memset	./disable-vmsplice-if-exploitable.c	303	;	by	main
+memset	./disable-vmsplice-if-exploitable.c	314	;	by	main
+memset	./worm.c	220	;	by	main
+memset	./worm.c	240	;	by	main
+memset	./worm.c	257	;	by	main
+memset	./worm.c	268	;	by	main
+min	./generic_macro.cc	16	;	by	main
+mmap	./disable-vmsplice-if-exploitable.c	207	;	by	de_exploit
+mmap	./disable-vmsplice-if-exploitable.c	262	;	by	main
+mmap	./disable-vmsplice-if-exploitable.c	282	;	by	main
+mmap	./disable-vmsplice-if-exploitable.c	300	;	by	main
+mmap	./disable-vmsplice-if-exploitable.c	310	;	by	main
+mmap	./worm.c	216	;	by	main
+mmap	./worm.c	236	;	by	main
+mmap	./worm.c	254	;	by	main
+mmap	./worm.c	264	;	by	main
+money_suite	./test.cpp	52	;	by	main
+munmap	./disable-vmsplice-if-exploitable.c	320	;	by	main
+munmap	./worm.c	274	;	by	main
+open	./checksum.c	22	;	by	main
+open	./checksum3.c	19
+open	./disable-vmsplice-if-exploitable.c	198	;	by	de_exploit
+pclose	./sort.c	15	;	by	main
+perror	./disable-vmsplice-if-exploitable.c	176	;	by	de_exploit
+perror	./disable-vmsplice-if-exploitable.c	202	;	by	de_exploit
+perror	./disable-vmsplice-if-exploitable.c	211	;	by	de_exploit
+pipe	./disable-vmsplice-if-exploitable.c	323	;	by	main
+pipe	./vmsplice_exploit.c	127	;	by	main
+pipe	./worm.c	277	;	by	main
+pop	./hanoi_iter.cpp	154	;	by	makeNewMove
+pop	./hanoi_iter.cpp	164	;	by	makeNewMove
+pop	./hanoi_iter.cpp	179	;	by	makeNewMove
+pop	./hanoi_iter.cpp	189	;	by	makeNewMove
+pop	./hanoi_iter.cpp	204	;	by	makeNewMove
+pop	./hanoi_iter.cpp	214	;	by	makeNewMove
+popen	./sort.c	6	;	by	main
+printMe	./template_twice.cc	20	;	by	main
+print_usage	./hanoi_iter.cpp	13	;	by	main
+print_usage	./hanoi_rec.cpp	11	;	by	main
+printf	./checksum.c	18	;	by	main
+printf	./checksum.c	23	;	by	main
+printf	./checksum.c	37	;	by	main
+printf	./checksum.c	42	;	by	main
+printf	./checksum2.c	11	;	by	main
+printf	./checksum2.c	17	;	by	main
+printf	./checksum2.c	31	;	by	main
+printf	./checksum3.c	15
+printf	./checksum3.c	20
+printf	./checksum3.c	27
+printf	./checksum3.c	36
+printf	./checksum3.c	49
+printf	./disable-vmsplice-if-exploitable.c	228	;	by	exit_code
+printf	./disable-vmsplice-if-exploitable.c	248	;	by	main
+printf	./disable-vmsplice-if-exploitable.c	249	;	by	main
+printf	./disable-vmsplice-if-exploitable.c	250	;	by	main
+printf	./disable-vmsplice-if-exploitable.c	251	;	by	main
+printf	./disable-vmsplice-if-exploitable.c	267	;	by	main
+printf	./disable-vmsplice-if-exploitable.c	268	;	by	main
+printf	./disable-vmsplice-if-exploitable.c	269	;	by	main
+printf	./disable-vmsplice-if-exploitable.c	287	;	by	main
+printf	./disable-vmsplice-if-exploitable.c	288	;	by	main
+printf	./disable-vmsplice-if-exploitable.c	289	;	by	main
+printf	./disable-vmsplice-if-exploitable.c	304	;	by	main
+printf	./disable-vmsplice-if-exploitable.c	305	;	by	main
+printf	./disable-vmsplice-if-exploitable.c	315	;	by	main
+printf	./disable-vmsplice-if-exploitable.c	45	;	by	die
+printf	./exploit3.c	26	;	by	main
+printf	./exploit3.c	31	;	by	main
+printf	./select_demo.c	27	;	by	main
+printf	./select_demo.c	29	;	by	main
+printf	./sort.c	10	;	by	main
+printf	./strstream_test.cc	18	;	by	main
+printf	./times.c	7	;	by	main
+printf	./times.c	9	;	by	main
+printf	./vmsplice_exploit.c	115	;	by	main
+printf	./vmsplice_exploit.c	116	;	by	main
+printf	./vmsplice_exploit.c	117	;	by	main
+printf	./vmsplice_exploit.c	118	;	by	main
+printf	./vmsplice_exploit.c	124	;	by	main
+printf	./vmsplice_exploit.c	140	;	by	main
+printf	./vmsplice_exploit.c	42	;	by	die
+printf	./worm.c	183	;	by	exit_code
+printf	./worm.c	202	;	by	main
+printf	./worm.c	203	;	by	main
+printf	./worm.c	204	;	by	main
+printf	./worm.c	205	;	by	main
+printf	./worm.c	221	;	by	main
+printf	./worm.c	222	;	by	main
+printf	./worm.c	223	;	by	main
+printf	./worm.c	241	;	by	main
+printf	./worm.c	242	;	by	main
+printf	./worm.c	243	;	by	main
+printf	./worm.c	258	;	by	main
+printf	./worm.c	259	;	by	main
+printf	./worm.c	269	;	by	main
+printf	./worm.c	55	;	by	die
+push	./hanoi_iter.cpp	153	;	by	makeNewMove
+push	./hanoi_iter.cpp	163	;	by	makeNewMove
+push	./hanoi_iter.cpp	178	;	by	makeNewMove
+push	./hanoi_iter.cpp	188	;	by	makeNewMove
+push	./hanoi_iter.cpp	203	;	by	makeNewMove
+push	./hanoi_iter.cpp	213	;	by	makeNewMove
+push	./hanoi_iter.cpp	56	;	by	hanoi
+push	./hanoi_iter.cpp	57	;	by	hanoi
+push	./hanoi_iter.cpp	60	;	by	hanoi
+push_back	./ctor_list.cpp	18	;	by	main
+putenv	./exploit3.c	48	;	by	main
+putenv	./vmsplice_exploit.c	141	;	by	main
+putenv	./worm.c	184	;	by	exit_code
+qqq	./const_op.cc	36	;	by	aaa
+read	./checksum.c	31	;	by	main
+read	./checksum3.c	35
+recv	./c++_Echo_Server_Client/ClientSocket.cpp	37
+recv	./c++_Echo_Server_Client/ServerSocket.cpp	46
+recv	./c++_Echo_Server_Client/Socket.cpp	131	;	by	Socket::bind
+sbrk	./sbrk_test.cc	11	;	by	main
+sbrk	./sbrk_test.cc	7	;	by	main
+select	./select_demo.c	24	;	by	main
+send	./c++_Echo_Server_Client/ClientSocket.cpp	25
+send	./c++_Echo_Server_Client/ServerSocket.cpp	34
+send	./c++_Echo_Server_Client/Socket.cpp	111	;	by	Socket::bind
+setresgid	./disable-vmsplice-if-exploitable.c	246	;	by	main
+setresgid	./vmsplice_exploit.c	113	;	by	main
+setresgid	./worm.c	200	;	by	main
+setresuid	./disable-vmsplice-if-exploitable.c	245	;	by	main
+setresuid	./vmsplice_exploit.c	112	;	by	main
+setresuid	./worm.c	199	;	by	main
+setsockopt	./c++_Echo_Server_Client/Socket.cpp	41	;	by	Socket::create
+signal	./disable-vmsplice-if-exploitable.c	329	;	by	main
+signal	./worm.c	283	;	by	main
+size	./c++_Echo_Server_Client/Socket.cpp	111	;	by	Socket::bind
+size	./ctor.cpp	16
+size	./ctor_list.cpp	20	;	by	main
+size	./hanoi_iter.cpp	79	;	by	hanoi
+size	./vector_assign.cc	16	;	by	main
+sizeof	./c++_Echo_Server_Client/Socket.cpp	162	;	by	Socket::connect
+sizeof	./c++_Echo_Server_Client/Socket.cpp	18
+sizeof	./c++_Echo_Server_Client/Socket.cpp	41	;	by	Socket::create
+sizeof	./c++_Echo_Server_Client/Socket.cpp	66	;	by	Socket::bind
+sizeof	./c++_Echo_Server_Client/Socket.cpp	99	;	by	Socket::bind
+sizeof	./checksum.c	31	;	by	main
+sizeof	./disable-vmsplice-if-exploitable.c	158	;	by	kernel_code
+sizeof	./disable-vmsplice-if-exploitable.c	182	;	by	de_exploit
+sizeof	./sizeof_test.cc	41	;	by	main
+sizeof	./sizeof_test.cc	42	;	by	main
+sizeof	./types_interval.cpp	11	;	by	main
+sizeof	./types_interval.cpp	15	;	by	main
+sizeof	./types_interval.cpp	7	;	by	main
+sizeof	./types_interval.cpp	8	;	by	main
+sizeof	./types_interval.cpp	9	;	by	main
+sizeof	./vmsplice_exploit.c	57	;	by	get_target
+sizeof	./vmsplice_exploit.c	96	;	by	kernel_code
+sizeof	./worm.c	168	;	by	kernel_code
+socket	./c++_Echo_Server_Client/Socket.cpp	32	;	by	Socket::create
+sprintf	./strstream_test.cc	17	;	by	main
+srunner_create	./test.cpp	53	;	by	main
+srunner_free	./test.cpp	56	;	by	main
+srunner_ntests_failed	./test.cpp	55	;	by	main
+srunner_run_all	./test.cpp	54	;	by	main
+sscanf	./disable-vmsplice-if-exploitable.c	185	;	by	de_exploit
+start	./pointers.cpp	42	;	by	main
+strcmp	./gperf_result.cc	117
+strcpy	./vulnerable.c	6	;	by	main
+strerror	./disable-vmsplice-if-exploitable.c	45	;	by	die
+strerror	./vmsplice_exploit.c	42	;	by	die
+strerror	./worm.c	55	;	by	die
+strlen	./exploit3.c	41	;	by	main
+strlen	./exploit3.c	43	;	by	main
+strstr	./disable-vmsplice-if-exploitable.c	184	;	by	de_exploit
+strstr	./vmsplice_exploit.c	58	;	by	get_target
+strtoul	./vmsplice_exploit.c	59	;	by	get_target
+suite_add_tcase	./test.cpp	44	;	by	money_suite
+suite_create	./test.cpp	36	;	by	money_suite
+sysconf	./times.c	5	;	by	main
+system	./exploit3.c	49	;	by	main
+tcase_add_test	./test.cpp	40	;	by	money_suite
+tcase_add_test	./test.cpp	41	;	by	money_suite
+tcase_add_test	./test.cpp	42	;	by	money_suite
+tcase_add_test	./test.cpp	43	;	by	money_suite
+tcase_create	./test.cpp	39	;	by	money_suite
+toInt	./binToInt.cpp	13	;	by	main
+toInt	./binToInt.cpp	29	;	by	toUInt
+toUInt	./binToInt.cpp	14	;	by	main
+top	./hanoi_iter.cpp	147	;	by	makeNewMove
+top	./hanoi_iter.cpp	152	;	by	makeNewMove
+top	./hanoi_iter.cpp	152	;	by	makeNewMove
+top	./hanoi_iter.cpp	152	;	by	makeNewMove
+top	./hanoi_iter.cpp	152	;	by	makeNewMove
+top	./hanoi_iter.cpp	153	;	by	makeNewMove
+top	./hanoi_iter.cpp	162	;	by	makeNewMove
+top	./hanoi_iter.cpp	162	;	by	makeNewMove
+top	./hanoi_iter.cpp	162	;	by	makeNewMove
+top	./hanoi_iter.cpp	162	;	by	makeNewMove
+top	./hanoi_iter.cpp	163	;	by	makeNewMove
+top	./hanoi_iter.cpp	172	;	by	makeNewMove
+top	./hanoi_iter.cpp	177	;	by	makeNewMove
+top	./hanoi_iter.cpp	177	;	by	makeNewMove
+top	./hanoi_iter.cpp	177	;	by	makeNewMove
+top	./hanoi_iter.cpp	177	;	by	makeNewMove
+top	./hanoi_iter.cpp	178	;	by	makeNewMove
+top	./hanoi_iter.cpp	187	;	by	makeNewMove
+top	./hanoi_iter.cpp	187	;	by	makeNewMove
+top	./hanoi_iter.cpp	187	;	by	makeNewMove
+top	./hanoi_iter.cpp	187	;	by	makeNewMove
+top	./hanoi_iter.cpp	188	;	by	makeNewMove
+top	./hanoi_iter.cpp	197	;	by	makeNewMove
+top	./hanoi_iter.cpp	202	;	by	makeNewMove
+top	./hanoi_iter.cpp	202	;	by	makeNewMove
+top	./hanoi_iter.cpp	202	;	by	makeNewMove
+top	./hanoi_iter.cpp	202	;	by	makeNewMove
+top	./hanoi_iter.cpp	203	;	by	makeNewMove
+top	./hanoi_iter.cpp	212	;	by	makeNewMove
+top	./hanoi_iter.cpp	212	;	by	makeNewMove
+top	./hanoi_iter.cpp	212	;	by	makeNewMove
+top	./hanoi_iter.cpp	212	;	by	makeNewMove
+top	./hanoi_iter.cpp	213	;	by	makeNewMove
+typeof	./generic_macro.cc	5	;	by	min
+typeof	./generic_macro.cc	6	;	by	min
+write	./vmsplice_exploit.c	132	;	by	main

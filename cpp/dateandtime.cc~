@@ -1,0 +1,17 @@
+#include <iostream>
+#using namespace std
+
+int main(void)
+{
+
+  long sec  = 123456;
+  long usec = 111;
+  int freq  = 100;
+  int delta = 1;
+  int sign  = -1;
+
+
+  cout << endl << "sec  = " << sec  + (sign * (delta  / freq));
+  cout << endl << "usec = " << usec + (sign * ((delta % freq) * 1000 * 1000) / freq) );
+return 0;
+}

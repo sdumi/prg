@@ -1,0 +1,114 @@
+#include <iostream>
+#include <list>
+
+#include <sys/time.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include "ss_allocator.h"
+#include "dum_allocator.h"
+using namespace std;
+
+#define STDIN 0
+
+class Big
+{
+private:
+  int _40K[10*1024];
+
+public:
+  Big(int i)
+    {
+      _40K[i%10000] = i;
+    }
+  ~Big()
+    {}
+};
+
+
+int main(void)
+{
+//  list<Big, ss_allocator<Big> > bigList;
+  list<Big, dum_allocator<Big> > bigList;
+//  list<Big> bigList;
+
+  int i = 0;
+  cout << "Step 1: " << endl;
+
+//  while (i++ < 52409)
+  while (i++ < 80000)
+//  while (i++ < 75775)
+  {
+    Big b(i);
+//    cout << i << endl;
+    try
+    {
+      bigList.push_back(b);
+    }
+    catch (std::bad_alloc)
+    {
+      cerr << "alloc error" << endl;
+    }
+
+  }
+
+    cout << "Step 2: " << endl;
+  {
+    struct timeval tv;
+    tv.tv_sec  = 1;
+    tv.tv_usec = 0; // 0.001 sec
+
+    select(0, 0, 0, 0, &tv);
+  }
+
+  while (!bigList.empty())
+  {
+    //    cout << i-- << endl;
+    bigList.pop_front();
+  }
+  cout << "Step 3: " << endl;
+
+  {
+    struct timeval tv;
+    tv.tv_sec  = 5;
+    tv.tv_usec = 0; // 0.001 sec
+
+    select(0, 0, 0, 0, &tv);
+  }
+//------------------------------------------------------------
+  i = 0;
+  cout << "Step 1: " << endl;
+
+  while (i++ < 80000)
+  {
+    Big b(i);
+    //    cout << i << endl;
+    try
+    {
+      bigList.push_back(b);
+    }
+    catch (std::bad_alloc)
+    {
+      cerr << "alloc error" << endl;
+    }
+
+  }
+  cout << "Step 2: " << endl;
+
+  while (!bigList.empty())
+  {
+    //    cout << i-- << endl;
+    bigList.pop_front();
+  }
+  cout << "Step 3: " << endl;
+
+  {
+    struct timeval tv;
+    tv.tv_sec  = 4;
+    tv.tv_usec = 0; // 0.001 sec
+
+    select(0, 0, 0, 0, &tv);
+  }
+
+
+  return 0;
+}

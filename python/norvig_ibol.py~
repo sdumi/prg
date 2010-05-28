@@ -1,0 +1,19 @@
+
+# ################################################################ Main body
+ 
+# max_distance = 26
+# names, species, genomes = get_genomes() ## genomes = ['ACT...', ...]
+# n = len(genomes)
+# glen = len(genomes[0])
+# neighbors = get_neighbors() ## neighbor[g] = {g2:d2, g3:g3, ...}
+# greport(genomes)
+# nreport(neighbors)
+# creport(range(6, 15), [glen,16,15,14,13, 12, 11])
+# #sreport(species)
+
+# unit_tests()
+
+
+################################################################################ DUMDUM
+print "Hello World!"
+################################################################################ DUMDUM

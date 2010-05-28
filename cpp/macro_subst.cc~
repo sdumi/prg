@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+#define MACRO1(param) {                         \
+    if (1==param){                              \
+      cout << "1=="<< param <<endl;             \
+    }                                           \
+    else{                                       \
+      cout << "1!=" << param <<endl;            \
+    }                                           \
+  }
+
+#define MACRO
+
+

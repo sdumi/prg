@@ -1,0 +1,5 @@
+import sys
+def getSudoku(fname=""):
+    f = sys.stdin if (fname == "") else file(fname)
+
+getSudoku()

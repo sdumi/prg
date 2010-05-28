@@ -1,0 +1,12 @@
+/**
+ * Program to calculate the checksum of all bytes in
+ * the specified file. Obtains the bytes one at a time via read(),
+ * letting OS perform all data buffering.
+ */
+#include <stdio.h>
+#include <fcntl.h>
+
+void main(int argc, char *argv[])
+{
+  int Handle;
+

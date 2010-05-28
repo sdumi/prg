@@ -1,0 +1,14 @@
+# load the Expect package into Tcl
+package require Expect
+
+spawn bash
+
+exp_send "ls -l\n"
+
+set accum {}
+expect {
+    -regexp {..*} {
+	set accum "${accum}$expect_out(0,string)"
+	exp_continue
+    }
+}

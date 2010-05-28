@@ -1,0 +1,13 @@
+def read_dict(fname = "/local/src/OSPD3"):
+    "read the file containing the words"
+    fileContent = file(fname).readlines()
+    result = set([i.rstrip('\n') for i in fileContent])
+    return result
+
+
+myDict = read_dict()
+print myDict.__class__
+if 'LOVED' in myDict:
+    print "We found LOVED"
+else:
+    print "Umm... hopeless"

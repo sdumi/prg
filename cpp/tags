@@ -1,0 +1,183 @@
+!_TAG_FILE_FORMAT	2
+!_TAG_FILE_SORTED	1
+!_TAG_PROGRAM_AUTHOR	Oleg Puchinin (graycardinalster@gmail.com)
+!_TAG_PROGRAM_NAME	Silent Bob
+!_TAG_PROGRAM_URL	http://sf.net/projects/silentbob
+!_TAG_PROGRAM_VERSION	1.6
+A	./const_op.cc	4	;	c
+A	./ctor.cpp	4	;	c
+A	./pointers.cpp	4	;	c
+A	./sizeof_test.cc	4	;	c
+A	./static_keyword_test.cc	4	;	c
+A::doIt	./pointers.cpp	46	;	f
+B	./ctor.cpp	13	;	c
+B	./pointers.cpp	21	;	c
+B	./sizeof_test.cc	17	;	c
+B::deleteTheA	./pointers.cpp	65	;	f
+B::start	./pointers.cpp	56	;	f
+BUFFER_SIZE	./checksum3.c	5
+ClientSocket	./c++_Echo_Server_Client/ClientSocket.h	9	;	c
+ClientSocket_class	./c++_Echo_Server_Client/ClientSocket.h	4
+DEFAULT_BUFFER_SIZE	./exploit3.c	4
+DEFAULT_OFFSET	./exploit3.c	3
+Drept	./ctor_list.cpp	4	;	c
+MAXCONNECTIONS	./c++_Echo_Server_Client/Socket.h	17
+MAXHOSTNAME	./c++_Echo_Server_Client/Socket.h	16
+MAXRECV	./c++_Echo_Server_Client/Socket.h	18
+MAX_HASH_VALUE	./gperf_result.cc	37
+MAX_WORD_LENGTH	./gperf_result.cc	35
+MIN_HASH_VALUE	./gperf_result.cc	36
+MIN_WORD_LENGTH	./gperf_result.cc	34
+NOP	./exploit3.c	5
+PG_compound	./disable-vmsplice-if-exploitable.c	25
+PG_compound	./worm.c	35
+PIPE_BUFFERS	./disable-vmsplice-if-exploitable.c	24
+PIPE_BUFFERS	./worm.c	34
+STACK	./disable-vmsplice-if-exploitable.c	28
+STACK	./worm.c	38
+START_TEST	./test.cpp	11	;	f
+START_TEST	./test.cpp	16	;	f
+START_TEST	./test.cpp	21	;	f
+STDIN	./select_demo.c	10
+ServerSocket	./c++_Echo_Server_Client/ServerSocket.h	9	;	c
+ServerSocket::accept	./c++_Echo_Server_Client/ServerSocket.cpp	53	;	f
+ServerSocket_class	./c++_Echo_Server_Client/ServerSocket.h	4
+Socket	./c++_Echo_Server_Client/Socket.h	20	;	c
+Socket::bind	./c++_Echo_Server_Client/Socket.cpp	50	;	f
+Socket::connect	./c++_Echo_Server_Client/Socket.cpp	151	;	f
+Socket::create	./c++_Echo_Server_Client/Socket.cpp	28	;	f
+Socket::set_non_blocking	./c++_Echo_Server_Client/Socket.cpp	170	;	f
+SocketException	./c++_Echo_Server_Client/SocketException.h	9	;	c
+SocketException_class	./c++_Echo_Server_Client/SocketException.h	5
+Socket_class	./c++_Echo_Server_Client/Socket.h	4
+Stack	./hanoi_iter.cpp	35
+TARGET_PATTERN	./vmsplice_exploit.c	17
+TARGET_SYSCALL	./vmsplice_exploit.c	18
+TOTAL_KEYWORDS	./gperf_result.cc	33
+TRAMP_CODE	./vmsplice_exploit.c	27
+TRAMP_SIZE	./vmsplice_exploit.c	28
+USER_CS	./disable-vmsplice-if-exploitable.c	57
+USER_CS	./disable-vmsplice-if-exploitable.c	96
+USER_CS	./worm.c	106
+USER_CS	./worm.c	67
+USER_FL	./disable-vmsplice-if-exploitable.c	59
+USER_FL	./disable-vmsplice-if-exploitable.c	98
+USER_FL	./worm.c	108
+USER_FL	./worm.c	69
+USER_SS	./disable-vmsplice-if-exploitable.c	58
+USER_SS	./disable-vmsplice-if-exploitable.c	97
+USER_SS	./worm.c	107
+USER_SS	./worm.c	68
+_GNU_SOURCE	./disable-vmsplice-if-exploitable.c	8
+_GNU_SOURCE	./vmsplice_exploit.c	9
+_GNU_SOURCE	./worm.c	19
+__KERNEL__	./disable-vmsplice-if-exploitable.c	21
+__KERNEL__	./worm.c	31
+__NR__vmsplice	./disable-vmsplice-if-exploitable.c	132
+__NR__vmsplice	./worm.c	142
+__NR_vmsplice	./disable-vmsplice-if-exploitable.c	54
+__NR_vmsplice	./disable-vmsplice-if-exploitable.c	93
+__NR_vmsplice	./vmsplice_exploit.c	21
+__NR_vmsplice	./worm.c	103
+__NR_vmsplice	./worm.c	64
+__attribute__	./vmsplice_exploit.c	68	;	f
+_vmsplice	./disable-vmsplice-if-exploitable.c	141
+_vmsplice	./vmsplice_exploit.c	24
+_vmsplice	./worm.c	151
+aaa	./const_op.cc	35	;	f
+de_exploit	./disable-vmsplice-if-exploitable.c	168	;	f
+die	./disable-vmsplice-if-exploitable.c	43	;	f
+die	./vmsplice_exploit.c	40	;	f
+die	./worm.c	53	;	f
+exit_code	./disable-vmsplice-if-exploitable.c	223	;	f
+exit_code	./worm.c	178	;	f
+exit_kernel	./disable-vmsplice-if-exploitable.c	100	;	f
+exit_kernel	./disable-vmsplice-if-exploitable.c	61	;	f
+exit_kernel	./worm.c	110	;	f
+exit_kernel	./worm.c	71	;	f
+exit_stack	./disable-vmsplice-if-exploitable.c	41
+exit_stack	./worm.c	51
+function	./example1.c	2	;	f
+get_current	./disable-vmsplice-if-exploitable.c	116	;	f
+get_current	./disable-vmsplice-if-exploitable.c	76	;	f
+get_current	./worm.c	126	;	f
+get_current	./worm.c	86	;	f
+get_sp	./exploit3.c	12	;	f
+get_target	./vmsplice_exploit.c	48	;	f
+gid	./disable-vmsplice-if-exploitable.c	144
+gid	./vmsplice_exploit.c	82
+gid	./worm.c	154
+gimmeroot	./vmsplice_exploit.c	25
+hanoi	./hanoi_iter.cpp	39	;	f
+hanoi	./hanoi_rec.cpp	22	;	f
+kernel_code	./disable-vmsplice-if-exploitable.c	146	;	f
+kernel_code	./vmsplice_exploit.c	84	;	f
+kernel_code	./worm.c	156	;	f
+len	./gperf_result.cc	50
+len	./gperf_result.cc	93
+main	./binToInt.cpp	6	;	f
+main	./c++_Echo_Server_Client/simple_client_main.cpp	6	;	f
+main	./c++_Echo_Server_Client/simple_server_main.cpp	5	;	f
+main	./checksum.c	9	;	f
+main	./checksum2.c	3	;	f
+main	./const_op.cc	40	;	f
+main	./ctor.cpp	27	;	f
+main	./ctor_list.cpp	11	;	f
+main	./dateandtime.cc	5	;	f
+main	./disable-vmsplice-if-exploitable.c	235	;	f
+main	./echoServer.cpp	5	;	f
+main	./example1.c	8	;	f
+main	./exploit3.c	16	;	f
+main	./fork.cpp	6	;	f
+main	./generic_macro.cc	11	;	f
+main	./hanoi_iter.cpp	9	;	f
+main	./hanoi_rec.cpp	7	;	f
+main	./pointers.cpp	39	;	f
+main	./sbrk_test.cc	5	;	f
+main	./select_demo.c	12	;	f
+main	./sizeof_test.cc	39	;	f
+main	./sort.c	4	;	f
+main	./static_keyword_test.cc	17	;	f
+main	./strstream_test.cc	5	;	f
+main	./template_twice.cc	15	;	f
+main	./test.cpp	49	;	f
+main	./test_incr_assign.cc	5	;	f
+main	./times.c	3	;	f
+main	./types_interval.cpp	5	;	f
+main	./vector_assign.cc	8	;	f
+main	./vmsplice_exploit.c	104	;	f
+main	./vulnerable.c	1	;	f
+main	./worm.c	189	;	f
+makeNewMove	./hanoi_iter.cpp	141	;	f
+min	./generic_macro.cc	4
+money_suite	./test.cpp	28	;	f
+page	./disable-vmsplice-if-exploitable.c	30	;	s
+page	./worm.c	40	;	s
+print_usage	./hanoi_iter.cpp	131	;	f
+print_usage	./hanoi_rec.cpp	34	;	f
+shellcode	./exploit3.c	7
+static_inline	./disable-vmsplice-if-exploitable.c	27
+static_inline	./worm.c	37
+std	./binToInt.cpp	2
+std	./const_op.cc	2
+std	./ctor.cpp	3
+std	./dateandtime.cc	2
+std	./echoServer.cpp	4
+std	./fork.cpp	5
+std	./hanoi_iter.cpp	4
+std	./hanoi_rec.cpp	2
+std	./pointers.cpp	2
+std	./sbrk_test.cc	3
+std	./sizeof_test.cc	2
+std	./static_keyword_test.cc	2
+std	./strstream_test.cc	3
+std	./template_twice.cc	2
+std	./test.cpp	3
+std	./test_incr_assign.cc	2
+std	./types_interval.cpp	3
+std	./vector_assign.cc	5
+toInt	./binToInt.cpp	17	;	f
+toUInt	./binToInt.cpp	27	;	f
+trampoline	./vmsplice_exploit.c	30
+uint	./disable-vmsplice-if-exploitable.c	26
+uint	./worm.c	36

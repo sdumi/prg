@@ -1,0 +1,13 @@
+#include <check>
+#include <iostream>
+
+int main(void)
+{
+  START_TEST (test_name)
+  {
+    /* unit test code */
+    cout << endl << "my first test" << endl;
+  }
+  END_TEST;
+  return 0;
+}

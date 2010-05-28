@@ -1,0 +1,34 @@
+#include 
+#include 
+#include 
+
+#define TRUE 1
+#define FALSE 0
+
+int show_help(int state, int end)
+{
+        printf("nNeed some help?n");
+        rl_on_new_line();
+        return 0;
+}
+
+int main(int argc, char **argv)
+{
+        char *bindstr = "\"?\": custom";
+        char *line;
+        char *input;
+
+        rl_add_defun("custom", (rl_command_func_t *)show_help, -1);
+        line = malloc(1 + strlen(bindstr));
+        strcpy(line, bindstr);
+
+        rl_parse_and_bind(line);
+
+        free(line);
+
+        while (TRUE)
+        {
+                input = readline("rl: ");
+                printf("%sn", input);
+        }
+}

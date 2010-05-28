@@ -1,0 +1,10 @@
+#include <unistd.h>
+
+void main (void)
+{
+    long clkFreq = sysconf(_SC_CLK_TCK);
+    if (clkFreq == -1)
+        printf("Error while reading the SC_CLK_TCK\n");
+    else
+        printf("the system clock frequency is: %d\n", clkFreq);
+}

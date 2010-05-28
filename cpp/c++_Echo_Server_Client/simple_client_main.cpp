@@ -8,15 +8,16 @@ int main ( int argc, int argv[] )
   try
     {
 
-      ClientSocket client_socket ( "localhost", 30000 );
+//      ClientSocket client_socket ( "localhost", 30000 );
+      ClientSocket client_socket ( "localhost", 50001 );
 
       std::string reply;
 
       try
-	{
-	  client_socket << "Test message.";
-	  client_socket >> reply;
-	}
+  {
+    client_socket << "Test message.";
+    client_socket >> reply;
+  }
       catch ( SocketException& ) {}
 
       std::cout << "We received this response from the server:\n\"" << reply << "\"\n";;

@@ -1,0 +1,2060 @@
+############################################################################
+#
+    set testInfo(desc) "Regression Tests"
+    set testInfo(keywords) {search keyword}
+    set testInfo(author) team
+############################################################################
+# Enter variables that you want to be prompted for at runtime
+
+set host "155.132.113.221" ;# Which host to use
+set uid "USER05" ;# What UID to use
+set pid "LEVEL_5" ;# What PID to use
+set iterate "1" ;# How many iterations
+set delay "3000" ;# Delay between TL1 commands
+set check_response "0" ;# Non zero will check RTRV response data
+set swLoad "E02.03.00" ;
+
+
+############################################################################
+
+source utilproc.tc
+
+set favoriteHostName $host
+set testInfo(swLoad) $swLoad
+OPEN tcp $host pt 3082
+getTester
+putTestInfo pt
+if ![TL1 pt "act-user::${uid}:::${pid}"] { failScript }
+msleep 2000
+
+#####   Enter Your TL1 commands, etc... here  ########
+
+setOption tl1-delay $delay
+bannerBegin pt "SWIT TEST" "SWIT-1" "provision SPVM on a 1-1-23 slot: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::SPVM-1-1-23::::BOARDTYPE=SPVM1:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-1"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-1" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-2" "provision OAC_L_SPV1 on a 1-1-12 slot: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OAC-1-1-12::::BOARDTYPE=OAC1LC,OPTDELTA=5.5,SPV=1:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-2"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-2" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-3" "provision OMDX8100_M_L1_XS_NOSPV on 1-1-2 slot: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OMD-1-1-2::::BOARDTYPE=OMDX_XS,SPV=NO,FREQ=30,MATEID=OAC-1-1-12:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-3"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-3" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-4" "Provision expansion shelf 1-2: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::SHELF-1-2:::::OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-4"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-4" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-5" "provision OMDX8100_M_L2 on 1-2-2 slot: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OMD-1-2-2::::BOARDTYPE=OMDX,SPV=NO,FREQ=20,MATEID=OMD-1-1-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-5"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-5" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-6" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-2-4::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=20,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-2-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-6"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-6" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-7" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-2-6::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=21,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-2-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-7"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-7" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-8" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-2-8::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=22,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-2-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-8"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-8" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-9" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-2-10::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=23,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-2-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-9"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-9" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-10" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-2-14::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=25,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-2-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-10"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-10" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-11" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-2-16::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=26,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-2-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-11"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-11" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-12" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-2-18::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=27,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-2-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-12"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-12" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-13" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-2-20::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=28,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-2-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-13"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-13" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-14" "provision OADM8 on 1-2-22 slot: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OMD-1-2-22::::BOARDTYPE=OADM8,SPV=NO,FREQ=20,MATEID=OMD-1-1-22:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-14"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-14" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-15" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-2-5::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=20,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-2-22:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-15"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-15" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-16" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-2-7::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=21,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-2-22:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-16"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-16" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-17" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-2-9::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=22,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-2-22:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-17"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-17" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-18" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-2-11::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=23,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-2-22:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-18"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-18" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-19" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-2-15::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=25,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-2-22:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-19"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-19" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-20" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-2-17::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=26,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-2-22:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-20"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-20" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-21" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-2-19::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=27,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-2-22:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-21"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-21" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-22" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-2-21::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=28,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-2-22:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-22"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-22" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-23" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-1-4::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=30,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-1-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-23"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-23" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-24" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-1-6::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=31,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-1-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-24"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-24" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-25" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-1-8::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=32,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-1-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-25"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-25" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-26" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-1-10::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=33,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-1-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-26"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-26" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-27" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-1-14::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=35,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-1-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-27"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-27" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-28" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-1-16::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=36,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-1-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-28"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-28" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-29" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-1-18::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=37,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-1-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-29"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-29" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-30" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-1-20::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=38,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-1-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-30"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-30" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-31" "provision OAC_L_SPV2 on a 1-1-13 slot: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OAC-1-1-13::::BOARDTYPE=OAC1LC,OPTDELTA=5.5,SPV=2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-31"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-31" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-32" "provision OMDX8100_M_L1_XS_NOSPV on 1-1-22 slot associated to 1-1-13: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OMD-1-1-22::::BOARDTYPE=OMDX_XS,SPV=NO,FREQ=30,MATEID=OAC-1-1-13:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-32"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-32" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-33" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-1-5::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=30,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-1-22:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-33"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-33" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-34" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-1-7::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=31,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-1-22:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-34"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-34" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-35" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-1-9::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=32,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-1-22:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-35"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-35" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-36" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-1-11::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=33,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-1-22:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-36"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-36" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-37" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-1-15::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=35,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-1-22:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-37"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-37" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-38" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-1-17::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=36,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-1-22:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-38"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-38" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-39" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-1-19::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=37,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-1-22:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-39"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-39" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-40" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-1-21::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=38,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-1-22:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-40"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-40" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-41" "Provision expansion shelf 1-3: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::SHELF-1-3:::::OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-41"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-41" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-42" "Provision expansion shelf 1-4: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::SHELF-1-4:::::OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-42"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-42" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-43" "provision OMDX8100_M_S2 on 1-3-2 slot: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OMD-1-3-2::::BOARDTYPE=OMDX,SPV=NO,FREQ=42,MATEID=OMD-1-2-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-43"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-43" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-44" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-3-4::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=42,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-3-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-44"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-44" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-45" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-3-6::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=43,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-3-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-45"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-45" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-46" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-3-8::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=44,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-3-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-46"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-46" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-47" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-3-10::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=45,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-3-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-47"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-47" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-48" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-3-14::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=47,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-3-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-48"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-48" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-49" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-3-16::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=48,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-3-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-49"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-49" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-50" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-3-18::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=49,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-3-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-50"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-50" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-51" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-3-20::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=50,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-3-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-51"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-51" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-52" "provision OMDX8100_M_S2 on 1-3-3 slot: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OMD-1-3-3::::BOARDTYPE=OMDX,SPV=NO,FREQ=42,MATEID=OMD-1-2-22:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-52"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-52" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-53" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-3-5::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=42,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-3-3:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-53"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-53" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-54" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-3-7::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=43,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-3-3:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-54"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-54" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-55" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-3-9::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=44,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-3-3:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-55"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-55" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-56" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-3-11::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=45,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-3-3:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-56"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-56" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-57" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-3-15::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=47,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-3-3:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-57"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-57" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-58" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-3-17::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=48,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-3-3:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-58"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-58" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-59" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-3-19::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=49,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-3-3:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-59"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-59" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-60" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-3-21::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=50,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-3-3:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-60"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-60" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-61" "provision OMDX8100_M_S1 on 1-4-2 slot: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OMD-1-4-2::::BOARDTYPE=OMDX,SPV=NO,FREQ=52,MATEID=OMD-1-3-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-61"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-61" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-62" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-4-4::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=52,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-4-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-62"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-62" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-63" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-4-6::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=53,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-4-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-63"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-63" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-64" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-4-8::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=54,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-4-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-64"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-64" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-65" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-4-10::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=55,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-4-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-65"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-65" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-66" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-4-14::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=57,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-4-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-66"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-66" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-67" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-4-16::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=58,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-4-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-67"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-67" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-68" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-4-18::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=59,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-4-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-68"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-68" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-69" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-4-20::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=60,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-4-2:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-69"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-69" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-70" "provision OMDX8100_M_S1 on 1-4-3 slot: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OMD-1-4-3::::BOARDTYPE=OMDX,SPV=NO,FREQ=52,MATEID=OMD-1-3-3:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-70"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-70" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-71" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-4-5::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=52,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-4-3:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-71"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-71" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-72" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-4-7::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=53,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-4-3:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-72"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-72" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-73" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-4-9::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=54,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-4-3:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-73"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-73" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-74" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-4-11::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=55,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-4-3:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-74"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-74" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-75" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-4-15::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=57,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-4-3:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-75"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-75" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-76" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-4-17::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=58,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-4-3:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-76"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-76" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-77" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-4-19::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=59,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-4-3:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-77"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-77" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-78" "provision OCC boards: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "ENT-EQPT::OCC-1-4-21::::BOARDTYPE=OCC1,SIGTYPE=SONET,FREQ=60,ATTNFCT=20,DTV=0,NCD=0,MATEID=OMD-1-4-3:OOS" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-78"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-78" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-79" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-4-21" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-79"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-79" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-80" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-4-20" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-80"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-80" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-81" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-4-19" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-81"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-81" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-82" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-4-18" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-82"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-82" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-83" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-4-17" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-83"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-83" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-84" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-4-16" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-84"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-84" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-85" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-4-15" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-85"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-85" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-86" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-4-14" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-86"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-86" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-87" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-4-11" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-87"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-87" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-88" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-4-10" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-88"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-88" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-89" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-4-9" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-89"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-89" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-90" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-4-8" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-90"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-90" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-91" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-4-7" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-91"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-91" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-92" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-4-6" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-92"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-92" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-93" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-4-5" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-93"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-93" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-94" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-4-4" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-94"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-94" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-95" "Delete OMD-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OMD-1-4-3" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-95"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-95" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-96" "Delete OMD-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OMD-1-4-2" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-96"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-96" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-97" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-3-21" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-97"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-97" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-98" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-3-20" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-98"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-98" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-99" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-3-19" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-99"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-99" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-100" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-3-18" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-100"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-100" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-101" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-3-17" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-101"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-101" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-102" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-3-16" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-102"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-102" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-103" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-3-15" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-103"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-103" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-104" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-3-14" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-104"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-104" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-105" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-3-11" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-105"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-105" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-106" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-3-10" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-106"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-106" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-107" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-3-9" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-107"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-107" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-108" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-3-8" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-108"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-108" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-109" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-3-7" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-109"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-109" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-110" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-3-6" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-110"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-110" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-111" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-3-5" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-111"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-111" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-112" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-3-4" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-112"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-112" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-113" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OMD-1-3-3" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-113"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-113" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-114" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OMD-1-3-2" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-114"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-114" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-115" "Delete shelves: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::SHELF-1-4" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-115"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-115" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-116" "Delete shelves: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::SHELF-1-3" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-116"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-116" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-117" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-2-21" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-117"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-117" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-118" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-2-20" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-118"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-118" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-119" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-2-19" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-119"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-119" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-120" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-2-18" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-120"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-120" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-121" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-2-17" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-121"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-121" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-122" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-2-16" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-122"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-122" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-123" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-2-15" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-123"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-123" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-124" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-2-14" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-124"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-124" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-125" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-2-11" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-125"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-125" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-126" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-2-10" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-126"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-126" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-127" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-2-9" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-127"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-127" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-128" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-2-8" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-128"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-128" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-129" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-2-7" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-129"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-129" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-130" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-2-6" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-130"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-130" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-131" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-2-5" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-131"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-131" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-132" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-2-4" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-132"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-132" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-133" "Delete OMD-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OMD-1-2-22" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-133"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-133" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-134" "Delete OMD-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OMD-1-2-2" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-134"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-134" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-135" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-1-21" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-135"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-135" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-136" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-1-20" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-136"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-136" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-137" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-1-19" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-137"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-137" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-138" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-1-18" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-138"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-138" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-139" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-1-17" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-139"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-139" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-140" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-1-16" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-140"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-140" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-141" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-1-15" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-141"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-141" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-142" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-1-14" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-142"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-142" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-143" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-1-11" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-143"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-143" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-144" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-1-10" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-144"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-144" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-145" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-1-9" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-145"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-145" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-146" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-1-8" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-146"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-146" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-147" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-1-7" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-147"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-147" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-148" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-1-6" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-148"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-148" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-149" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-1-5" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-149"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-149" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-150" "Delete OCC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OCC-1-1-4" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-150"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-150" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-151" "Delete OMD-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OMD-1-1-22" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-151"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-151" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-152" "Delete OMD-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OMD-1-1-2" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-152"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-152" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-153" "Delete OAC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OAC-1-1-13" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-153"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-153" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-154" "Delete OAC-s: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::OAC-1-1-12" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-154"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-154" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-155" "Delete SPVM: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::SPVM-1-1-23" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-155"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-155" 
+
+
+bannerBegin pt "SWIT TEST" "SWIT-156" "Delete shelf: COMPLD" 
+set testInfo(result) "PASS" 
+
+if ![TL1 pt "DLT-EQPT::SHELF-1-2" COMPLD] {
+ set testInfo(result) "FAIL" 
+}
+set testInfo(SWITTag) "SWIT-156"
+set testInfo(reqTag) "" 
+set testInfo(crNumber) "" 
+putResults pt
+bannerEnd pt "SWIT TEST" "SWIT-156" 
+
+

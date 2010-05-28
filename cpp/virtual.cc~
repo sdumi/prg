@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+class A
+{
+public:
+  virtual void f()
+    {
+      cout << "A::f()" << endl;
+    }
+};
+
+class B: public A
+{
+public:
+  void f()
+    {
+      cout << "B::f()" << endl;
+    }
+};
+
+class C: public B
+{
+public:
+  void f()
+    {
+      cout << "C::f()" << endl;
+    }
+};
+
+int main(void)
+{
+  C c;
+  B b;
+  A *pa = &b;
+  pa->f();
+  pa = &c;
+  pa->f();
+
+  B* pb = &c;
+  pb->f();
+}

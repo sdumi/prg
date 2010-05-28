@@ -1,0 +1,4 @@
+"""
+This program will try to convert a 'mbox' mail file (Thunderbird) to 'maildir' (gnus).
+receives as input the mbox file and the maildir directory
+"""

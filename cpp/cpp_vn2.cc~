@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+class A
+{
+public:
+  void show()
+    {
+      cout<<"A::show()";
+    }
+};
+
+class B: protected A
+{
+public:
+  void show()
+    {
+      cout << "B::show()";
+    }
+};
+
+int main()
+{
+  B b;
+  b.show();
+}

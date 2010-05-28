@@ -1,0 +1,12 @@
+#include <iostream>
+#include <sstream>
+
+int main ()
+{
+  cout << "hello world!" << endl;
+
+  string result;
+  stringstream str;
+  str << "Vio" << setw(4) << setfill('0') << (katag++ % 10000);
+result = katagStr.str();
+}

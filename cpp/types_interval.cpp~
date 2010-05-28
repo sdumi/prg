@@ -1,0 +1,6 @@
+#include <iostream>
+int main(void)
+{
+  cout << "sizeof (long long) = " << sizeof(long long) << endl;
+  return 0;
+}

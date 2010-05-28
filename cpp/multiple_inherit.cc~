@@ -1,0 +1,107 @@
+#include <iostream>
+using namespace std;
+
+class A10
+{
+public:
+    A10() { cout << "A10()"<<endl; }
+  long int  a10[1024];
+};
+
+class A11
+{
+public:
+  A11() { cout << "A11()"<<endl; }
+  long int  a11[1024];
+};
+
+class A12
+{
+public:
+  A12() { cout << "A12()"<<endl; }
+  long int  a12[1024];
+};
+
+class A13
+{
+public:
+  A13() { cout << "A13()"<<endl; }
+  long int  a13[1024];
+};
+
+class A14
+{
+public:
+  A14() { cout << "A14()"<<endl; }
+  long int  a14[1024];
+};
+
+class A15
+{
+public:
+  A15() { cout << "A15()"<<endl; }
+  long int  a15[1024];
+};
+
+class A16
+{
+public:
+  A16() { cout << "A16()"<<endl; }
+  long int  a16[1024];
+};
+
+class A17
+{
+public:
+  A17() { cout << "A17()"<<endl; }
+  long int  a17[1024];
+};
+
+class A18
+{
+public:
+  A18() { cout << "A18()"<<endl; }
+  long int  a18[1024];
+};
+
+class A19
+{
+public:
+  A19() { cout << "A19()"<<endl; }
+  long int  a19[1024];
+};
+
+class A20
+{
+public:
+  A20() { cout << "A20()"<<endl; }
+  long int  a20[1024];
+};
+
+class A21
+{
+public:
+  A21() { cout << "A21()"<<endl; }
+  long int  a21[1024*1024];
+};
+
+class A22
+{
+public:
+  A22() { cout << "A22()"<<endl; }
+  long int  a22[1024*1024];
+};
+
+class Test: A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22
+{
+public:
+  Test()  { cout << "Test()" << endl; }
+};
+
+
+int main(void)
+{
+  Test t, t1;
+  cout << "sizeof(t): "<<sizeof(t)<<endl;
+
+}

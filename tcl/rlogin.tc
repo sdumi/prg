@@ -1,0 +1,22 @@
+#!/local/prg5/bin/tclsh8.5
+package require Expect
+
+#foreach index [array names env] {
+#    puts "$index: $env($index)"
+#}
+
+set timeout 30
+spawn rlogin rotims00009
+set accum {}
+expect {
+    "Password:" {
+	send "$env(PASSWORD)\n"
+	exp_continue
+    }
+    -regexp {..*} {
+	set accum "${accum}$expect_out(0,string)"
+	exp_interact
+    }
+}
+puts $accum
+puts "Dumi says bye bye!\n"

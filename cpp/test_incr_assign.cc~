@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+
+int main(void)
+{
+  int x = 1;
+  int y = 5;
+
+  cout << "x == " << x << "; y = " << y << endl;
+  y = x++;
+  cout << "x == " << x << "; y = " << y << endl;
+  x = x++;
+  cout << "x == " << x << "; y = " << y << endl;
+
+  return 0;
+}
+

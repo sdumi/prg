@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+
+
+int main(void)
+{
+  int src = 7;
+  if (src > 1 || src < 0)
+    cout << "TRUE" << endl;
+  else
+    cout << "FALSE" << endl;
+
+  return 0;
+}

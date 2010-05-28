@@ -1,0 +1,294 @@
+#include "dum_storage.h"
+
+//#define DEBUG on
+
+//------------------------------------------------------------
+//
+template <class T> dum_storage<T>::dum_storage()
+{
+  // not sure if we need this:
+  size_ = sizeof(hdr) + init_size*sizeof(T);
+  step_ = sizeof(T);
+
+  // create our first chunk of memory:
+  char *p = addNewChunk();
+  // this is just a proof of concept:
+  hdr* ph = getHdr(p);
+}
+
+//------------------------------------------------------------
+//
+template <class T>
+char* dum_storage<T>::addNewChunk()
+{
+  // allocate new chunk of memory:
+  char *p = 0;
+
+  try
+  {
+    p = new char[size_];
+  }
+  catch (std::bad_alloc)
+  {
+    cerr << "could not allocate memory: std::bad_alloc" << endl;
+    throw;
+  }
+
+
+  if (!p)
+  {
+    cerr << "Not enough memory." << endl;
+    return(0);
+  }
+
+  // add the chunk to list of chunks and initialize the chunk:
+  dum_mem_.push_back(p);
+  initChunk(p);
+  return p;
+}
+
+//------------------------------------------------------------
+//
+template <class T>
+void dum_storage<T>::initChunk(char *p)
+{
+  // create a hdr obj at the beginning of the chunk
+  // using the placement 'new'
+  if (!p)
+  {
+    cerr << "Try to init chunk starting with 0x0!" << endl;
+    return;
+  }
+
+  new(p) hdr;
+  hdr *ph = getHdr(p);
+  p = p + sizeof(hdr);
+
+  // initialize the free blocks list... currently all blocks are available: this is a new chunk of memory
+  for (int i = 0; i < init_size; ++i)
+  {
+    ph->free_blocks.insert(p);
+
+    p = p + sizeof(T);
+  }
+}
+
+//------------------------------------------------------------
+// this works as long as 'p' is pointing to the beginning of a chunk of memory:
+// that is: something from the 'dum_mem_' list.
+template <class T>
+typename dum_storage<T>::hdr* dum_storage<T>::getHdr(char *p)
+{
+  // maybe we shouldn't use reinterpret_cast<> but something else... what?
+  if (!p)
+  {
+    cerr << "Try to getHdr of chunk starting at 0x0!" << endl;
+
+    return 0;
+  }
+
+  return reinterpret_cast<hdr * >(p);
+//  return static_cast<hdr *> (p);
+}
+
+//------------------------------------------------------------
+//
+template <class T>
+T* dum_storage<T>::allocate()
+{
+  // pointer to a chunk of memory with free block(s)
+  char *pChunk = 0;
+
+  // try to find a free block:
+  // iterate over our chunks of memory:
+  for (list<char*>::iterator it = dum_mem_.begin();
+       it != dum_mem_.end();
+       ++it)
+  {
+    hdr *ph = getHdr(*it);
+    if (! ph->free_blocks.empty())
+    {
+      pChunk = *it;
+      break;
+    }
+  }
+
+  if (!pChunk)
+  {
+    pChunk = addNewChunk();
+    if (!pChunk)
+    {
+      cerr << "Could not find a chunk with free blocks" << endl;
+      return 0x0;
+    }
+  }
+
+  // ooh... found a spot
+  hdr* ph = getHdr(pChunk);
+
+  // take the first block available:
+  char *p = *(ph->free_blocks.begin());
+
+  // put it in the allocated blocks list:
+  // not sure if we really need this:
+  ph->allocd_blocks.insert(p);
+  // remove it from the free blocks:
+  ph->free_blocks.erase(ph->free_blocks.begin());
+
+  return reinterpret_cast<T *>(p);
+}
+
+//------------------------------------------------------------
+//
+template<class T>
+void* dum_storage<T>::allocate(size_t n)
+{
+//   //  #ifdef DEBUG
+//   std::cout << "dum_storage::allocate(size_t): " << n << std::endl;
+//   //  #endif
+
+//   link *l = head_, *conn, *ret;
+//   if(n%step_) n = step_*(n/step_+1);
+//   while(1)
+//   {
+//     if(verify_memory_contiguous(l->next_, n/step_))
+//     {
+//       //      #ifdef DEBUG
+//       std::cout <<"!";
+//       //      #endif
+
+//       conn = ret = l->next_;
+//       for (unsigned int i=0; i<n/step_; ++i)
+//       {
+//         conn = conn->next_;
+//       }
+
+//       l->next_ = conn;
+//       return ret;
+//     }
+//     if ( l->next_ )
+//     {
+//       //      #ifdef DEBUG
+//       //      std::cout <<"@";
+//       //      #endif
+//       l = l->next_;
+//     }
+//     else
+//     {
+// #ifdef DEBUG
+//       std::cout <<"#";
+// #endif
+
+//       grow();
+//       l = head_;
+//     }
+//   }
+  return 0;
+
+}
+
+//------------------------------------------------------------
+//
+template<class T>
+void dum_storage<T>::deallocate(void *p, size_t n)
+{
+  if (!p)
+  {
+    cerr << "try to deallocate null pointer" << endl;
+
+    return;
+  }
+
+  if (n != 1)
+  {
+    cerr << "deallocate does not support size different from step" << endl;
+    cerr << "n = " << n << "  step_ = " << step_ << endl;
+    return;
+  }
+
+  list<char*>::iterator itDel = dum_mem_.end();
+
+  // find the chunk containing the pointer:
+  for (list<char*>::iterator it = dum_mem_.begin();
+       it != dum_mem_.end();
+       ++it)
+  {
+    if ((p >= *it) && (p < (*it + size_)))
+    {
+      // OK: found the chunk
+      // remove the block:
+      hdr *ph = getHdr(*it);
+      ph->free_blocks.insert((char*)p);
+      ph->allocd_blocks.erase((char*)p);
+
+      // see if the chunk can be erased:
+      if (ph->allocd_blocks.empty())
+      {
+        // found a chunk that can be deleted:
+        itDel = it;
+      }
+      break;
+    }
+  }
+  if (itDel != dum_mem_.end())
+  {
+//    cerr << "we will try to delete a chunk of memory:" << (unsigned int)*itDel << endl;
+
+    dum_mem_.erase(itDel);
+    delete [] *itDel;
+  }
+}
+
+//------------------------------------------------------------
+//
+template<class T>
+void dum_storage<T>::dump()
+{
+  // using namespace std;
+  // link *l = head_;
+  // int links = 0;
+  // size_t free_space = 0;
+  // while(l->next_){
+  //   free_space += step_;
+  //   ++links;
+  //   l = l->next_;
+  // }
+  // cout<<"Free space: "<<links*step_<<", links: "<<links<<endl;
+}
+
+//------------------------------------------------------------
+//
+template<class T>
+dum_storage<T>::~dum_storage()
+{
+  std::for_each(dum_mem_.begin(), dum_mem_.end(), killer());
+}
+
+//------------------------------------------------------------
+//
+template<class T>
+void dum_storage<T>::grow()
+{
+}
+
+//------------------------------------------------------------
+//
+template<class T>
+bool dum_storage<T>::verify_memory_contiguous(link *l, int n)
+{
+  if(!l) return false;
+  for(int i=0; i<n; ++i){
+    if(l->next_){
+      if(reinterpret_cast<char*>(l->next_) - reinterpret_cast<char*>(l) == step_){
+        l = l->next_;
+      }
+      else{
+        return false;
+      }
+    }
+    else{
+      return false;
+    }
+  }
+  return true;
+}

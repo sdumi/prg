@@ -1,0 +1,16 @@
+################################################## SUDOKU tester
+# Purpose: test if a sudoku configuration is valid or not.
+# Input: "sudoku.txt": file containing the sudoku configuration (numbers in a 9x9 matrix)
+# Output: OK, NOK.
+
+
+def get_sudoku(fname = "sudoku.txt"):
+    "read a text file containing the sudoku"
+    print "Hello World!"
+
+def zeros(*shape):
+    if len(shape) == 0:
+        return 0
+    car = shape[0]
+    cdr = shape[1:]
+    return [zeros(*cdr) for i in range(car)]

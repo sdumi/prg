@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+
+class Base {
+public:
+ Base(): x(0) {;}
+ void incr() { x = x + 2;}
+ int x;
+};
+class Derived : public Base {
+public:
+  Derived(int x): Base() {;}
+  virtual void incr() { x = x + 1; }
+};
+
+class MyClass : public Derived {
+public:
+  MyClass(int x): Derived(x) {;}
+};
+
+int main (void)
+{
+  MyClass x(0);
+  Derived y(1);
+  x.incr();
+  y.incr();
+  int z = x.x + y.x;
+  cout << "z = " << z << endl;
+  return 0;
+}
+

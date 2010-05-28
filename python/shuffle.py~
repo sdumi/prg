@@ -1,0 +1,13 @@
+from random import randrange
+def shuffle(items):
+    n = len(items)
+    while n > 1:
+        k = randrange(n) # 0..n-1
+        n = n - 1
+        items[k], items[n] = items[n], items[k]
+    return
+
+a = [1, 2, 3, 4, 5]
+print a
+shuffle(a)
+print a

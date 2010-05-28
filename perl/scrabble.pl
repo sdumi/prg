@@ -1,0 +1,69 @@
+#!/bin/env perl
+sub word_to_struct {
+    my ( $word ) = @_;
+
+    my %out;
+    $out{$_}++ for split //, $word;
+
+#    print $word;
+#    print "  ";
+#    print %out;
+#    print "\n";
+
+    return \%out;
+}
+
+sub read_dict {
+    my ( $dict_file ) = @_;
+
+    my %out;
+#    $dict_file ||= '/usr/share/dict/words';
+    $dict_file ||= '/local/src/OSPD3';
+    open my $dict_fh, '<', $dict_file
+        or die "Can't read '$dict_file': $!\n";
+    while ( my $word = <$dict_fh> ) {
+        chomp $word;
+        if ( $word =~ m{ \A [a-z]+ \z }xmsi ) {
+            $out{$word} = word_to_struct($word);
+        }
+    }
+    close $dict_fh or die "close failed: $!\n";
+    
+    
+    return \%out;
+}
+sub possible {
+    my ( $tiles_ref, $dict_ref ) = @_;
+
+    my @out;
+    my %tile_count;
+    $tile_count{$_}++ for @{$tiles_ref};
+    my $longest_word = scalar @{$tiles_ref};
+  WORD:
+    foreach my $word ( keys %{$dict_ref} ) {
+        next WORD if length $word > $longest_word;
+        foreach my $letter ( keys %{$dict_ref->{$word}} ) {
+            next WORD if ! defined $tile_count{$letter};
+            next WORD if $dict_ref->{$word}{$letter} > $tile_count{$letter};
+        }
+        push @out, $word;
+    }
+
+    return @out;
+}
+##use Data::Dumper;
+##print Dumper(possible( [ qw( U F I U L A C ) ], read_dict() ));
+#print(join("\n",  possible([ @ARGV  ], read_dict()) ));
+#print "$output";
+
+#get the words that can be created only with the letters from $ARGV
+@strings=possible([ @ARGV  ], read_dict());
+
+#sort the words by length:
+@temp = map { [ length $_, $_ ] } @strings;
+@temp = sort { $a->[0] <=> $b->[0] } @temp;
+@sorted = map { $_->[1] } @temp;
+
+#print the words: one word per line:
+print (join("\n", @sorted));
+print "\n";

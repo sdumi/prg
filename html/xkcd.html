@@ -1,0 +1,78 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css" media="screen"/>
+<style>
+</style type="text/css">
+
+</head>
+<body>
+  <div id="page">
+    
+    
+    <div id="header">
+      <div id="headerimg">
+	<h1><a href="http://blag.xkcd.com/">xkcd</a></h1>
+	
+	<div class="description">The blag of the webcomic</div>
+      </div>
+    </div>
+    <hr />
+    
+    <div id="content" class="widecolumn">
+
+      
+      <div class="navigation">
+	<div class="alignleft">&laquo; <a href="http://blag.xkcd.com/2009/03/27/a-brief-pair-of-notes/">A brief pair of notes</a></div>
+
+	<div class="alignright"><a href="http://blag.xkcd.com/2009/04/03/omegle/">Omegle</a> &raquo;</div>
+      </div>
+
+      <div class="post hentry category-uncategorized" id="post-160">
+	<h2>What Happened to my Laptop</h2>
+
+	<div class="entry">
+	  <p>For the people who wanted to know the chain of events causing the laptop problems in the last post:</p>
+
+	  <ol>
+	    <li>Safe search won&#8217;t disable, and login for regular Google services is broken.  I decide it&#8217;s a cookie conflict between Google services and file a bug report with Google.</li>
+	    <li>Google says &#8220;can&#8217;t reproduce&#8221;.  I discover that clearing private data doesn&#8217;t actually work right, and after some testing, go to file a bug with Firefox.  They ask for my version number.</li>
+	    <li>I notice my Firefox is out-of-date, and decide that it might be a quirk of this version of Firefox+Ubuntu.  I go to upgrade Firefox in Synaptic before filing the bug.  I don&#8217;t have the notifier running and haven&#8217;t updated in a while.</li>
+	    <li>I upgrade a package in Synaptic, but it turns out I just upgraded the meta package and not the actual package (or something.)  A more seasoned Synaptic user says &#8220;why not just run regular upgrades like a normal person?  It&#8217;ll fold Firefox into it.&#8221;  On any other day, this would have been good advice.</li>
+
+	    <li>I start the upgrade.  It&#8217;s churning along nicely, and I locate my cookies file and start examining it.</li>
+	    <li>My battery monitor disappears.  This is normal enough, actually.  I try to start it back up and get a notice about a broken configuration file.  Uh-oh.</li>
+	    <li>My nm-applet disappears.  That&#8217;s a little stranger, but neither applet is very reliable in my ion3 setup.</li>
+	    <li>At this point I find that my cookies file is malformed in some way, and that if I move it manually (rather than using the in-browser &#8216;delete cookies&#8217;) the original bug disappears.  Don&#8217;t know how that happened, but it&#8217;s solved, so I cancel the bug report with Mozilla.</li>
+	    <li>I go to edit the cookies file in emacs, and get a message that emacs can&#8217;t start.  Uh-oh.</li>
+
+	    <li>The upgrade fails with a bunch of package incompatibility messages.</li>
+	    <li>I start to feel alarmed.  I link an apt-guru friend a screenshot of a relevant part of my Synaptic window.  He says, &#8220;one of those version numbers looks wrong.  You&#8217;re running Hardy, right?&#8221;  I am.</li>
+	    <li>I open my sources.list (using nano, since emacs is broken.)  After a bunch of spaces at the bottom, I see something bad: A Debian repository.  I&#8217;m running Ubuntu.</li>
+	    <li>I don&#8217;t know how I added it.  Maybe I was on the wrong system and didn&#8217;t notice the prompt.  Maybe I was trying to install one specific package from Debian (via apt, for some reason) and forgot to take it out.  I honestly don&#8217;t remember.  But since I hadn&#8217;t updated in a while, it hadn&#8217;t come up.  But now I&#8217;m in trouble.</li>
+
+	    <li>I remove it, update my lists, and do a grep to see how many of my packages have upgraded to Debian versions.  750-1000 or so.  I paste the results back to some friends.  One of them looks, shakes her head, and says my system is like that guy in Star Trek after the transporter accident.</li>
+	    <li>Over the next few days, we try pinning packages back to the Hardy version and downgrading.  There are conflicts all over and lots of ninjinuity is required.  Sometimes the system won&#8217;t boot properly, claiming kernel module problems, which turns out to be because somewhere in this process my initramfs got misconfigured.  But eventually, everything is put back in working order (except, for some strange reason, gnuplot, which refuses to install the main binary file.  I compile it from source.)</li>
+	    <li>Watching the system boot successfully, I go to pour some milk and cereal in celebration.  I shake up the milk jug a little.  The lid is loose.  It spills all over the keyboard.  The system stops booting and the cycle of horror starts again.  (And yes, if I&#8217;d gotten a Lenovo when you all suggested it, I&#8217;d have a spill-proof keyboard with drains.  That&#8217;s my plan for the next time something horrible happens to my laptop, which should be any day now.)</li>
+	  </ol>
+
+	  
+	  <p class="postmetadata alt">
+	    <small>
+	      This entry was posted
+	      on Friday, April 3rd, 2009 at 2:38 pm						and is filed under <a href="http://blag.xkcd.com/category/uncategorized/" title="View all posts in Uncategorized" rel="category tag">Uncategorized</a>.
+	      You can follow any responses to this entry through the <a href='http://blag.xkcd.com/2009/04/03/what-happened-to-my-laptop/feed/'>RSS 2.0</a> feed.
+
+	      You can <a href="#respond">leave a response</a>, or <a href="http://blag.xkcd.com/2009/04/03/what-happened-to-my-laptop/trackback/" rel="trackback">trackback</a> from your own site.
+
+	      
+	    </small>
+
+	  </p>
+
+	</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

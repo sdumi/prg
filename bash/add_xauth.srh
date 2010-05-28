@@ -1,0 +1,5 @@
+#!/bin/sh
+randomkey=$(echo $(( $RANDOM * $RANDOM * 2 )))
+xauth add `hostname`/unix:0 . $randomkey
+xauth add `hostname`:0 . $randomkey
+

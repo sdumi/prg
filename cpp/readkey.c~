@@ -1,0 +1,20 @@
+#include <conio.h>
+
+int main(int, char**)
+{
+     for(;;)
+     {
+          char key = getch();
+          bool Extended = (key == 0);
+          if (Extended) key = getch();
+          int FullKey = key + (Extended?256:0);
+
+          switch(FullKey)
+          {
+          case UP_ARROW:
+               do_something();
+               break;
+          }
+     }
+return 0;
+}

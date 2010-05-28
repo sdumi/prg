@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title> Test the <code> element </title>
+    <link href="bundle.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    test
+    <code>code</code>
+    <p>The <code>code</code> element represents a fragment of computerd
+      code.</p>
+    
+    <p>When you call the <code>activate()</code> method on the
+      <code>robotSnowman</code> object, the eyes glow.</p>
+    
+    <p>The example below uses the <code>begin</code> keyword to indicate
+      the start of a statement block. It is paired with an <code>end</code>
+      keyword, which is followed by the <code>.</code> punctuation character
+      (full stop) to indicate the end of the program.</p>
+    <code class="language-pascal"><pre>var i: Integer;
+	begin
+	i := 1;
+	end.</pre></code>
+
+
+  </body>
+</html>

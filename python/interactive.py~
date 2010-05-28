@@ -1,0 +1,50 @@
+#!/usr/bin/env python
+
+import rlcompleter
+import readline
+import code
+
+
+def main():
+    print "HelloWorld!"
+    code.interact()
+    print "HelloWorld!"
+#main()
+
+#readline.parse_and_bind("bind ^I rl_complete")
+
+#readline.clear_history()
+#readline.add_history("foo")
+#readline.add_history("bar")
+
+#while 1:
+#    print raw_input('> ')
+
+values = ['John Doe <john.doe@mail.com>',
+          'Max One <max.one@mail.com>',
+          'Somebody Else <somebody.else@mail.com>']
+completions  = {}
+
+def completer(text, state):
+    print 'debug: text:  ', text
+    print 'debug: state: ', state
+    try:
+        matches = completions[text]
+    except KeyError:
+        matches = [value for value in values
+                   if text.upper() in value.upper()]
+        completions[text] = matches
+    try:
+        return matches[state]
+    except IndexError:
+        return None
+
+readline.set_completer(completer)
+# ON linux:
+#readline.parse_and_bind('tab: menu-complete')
+# ON mac:
+readline.parse_and_bind("bind ^I rl_complete")
+
+while 1:
+    a = raw_input('> ')
+    print 'said: ', a

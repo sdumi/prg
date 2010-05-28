@@ -1,0 +1,376 @@
+<!DOCTYPE QtCreatorProject>
+<qtcreator>
+ <data>
+  <variable>RunConfiguration0-CommandLineArguments</variable>
+  <valuelist type="QVariantList" />
+ </data>
+ <data>
+  <variable>RunConfiguration0-ProFile</variable>
+  <value type="QString" >qt_first.pro</value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-RunConfiguration.name</variable>
+  <value type="QString" >qt_first</value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-UseDyldImageSuffix</variable>
+  <value type="bool" >false</value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-UseTerminal</variable>
+  <value type="bool" >false</value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-UserSetName</variable>
+  <value type="bool" >false</value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-type</variable>
+  <value type="QString" >Qt4ProjectManager.Qt4RunConfiguration</value>
+ </data>
+ <data>
+  <variable>activeRunConfiguration</variable>
+  <value type="int" >0</value>
+ </data>
+ <data>
+  <variable>activebuildconfiguration</variable>
+  <value type="QString" >Debug</value>
+ </data>
+ <data>
+  <variable>buildConfiguration-Debug</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Debug</value>
+   <value key="QtVersionId" type="int" >0</value>
+   <value key="addQDumper" type="" ></value>
+   <value key="buildDirectory" type="QString" >/home/dsipos/prg/qt_first</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildConfiguration-Release</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Release</value>
+   <value key="QtVersionId" type="int" >0</value>
+   <value key="addQDumper" type="" ></value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfiguration-Debug-buildstep0</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Debug</value>
+   <valuelist key="abstractProcess.Environment" type="QVariantList" >
+    <value type="QString" >ARCH=i686</value>
+    <value type="QString" >CONFIGURE_ALIAS=pc-linux</value>
+    <value type="QString" >CONFIGURE_NAME=i686-linux</value>
+    <value type="QString" >CPATH=/home/dsipos/.toast/armed/include</value>
+    <value type="QString" >CVSROOT=/home/mibfrw/CVSRepository</value>
+    <value type="QString" >CVSUMASK=002</value>
+    <value type="QString" >CVS_RSH=ssh</value>
+    <value type="QString" >DESKTOP_STARTUP_ID=</value>
+    <value type="QString" >DISPLAY=rotimd0003t:0.0</value>
+    <value type="QString" >GENERATIONIFHOME=/home/dsiposCodeGen/GenerationIF</value>
+    <value type="QString" >GREP_COLOR=02;32</value>
+    <value type="QString" >GREP_OPTIONS=--color=auto</value>
+    <value type="QString" >G_BROKEN_FILENAMES=1</value>
+    <value type="QString" >HISTSIZE=100</value>
+    <value type="QString" >HOME=/home/dsipos</value>
+    <value type="QString" >HOST=rotimd0003t</value>
+    <value type="QString" >HOSTALIAS=rotimd0003t</value>
+    <value type="QString" >HOSTNAME=rotimd0003t</value>
+    <value type="QString" >HOST_ARCH=i686</value>
+    <value type="QString" >HTTP_PROXY=http://proxy-bell.net.alcatel.be:80</value>
+    <value type="QString" >HTTP_PROXY_PASS=blue7&amp;black</value>
+    <value type="QString" >HTTP_PROXY_USER=dumitrus</value>
+    <value type="QString" >IMTOOLS=/home/dsipos/CodeGen/IMTools</value>
+    <value type="QString" >IMTOOLSHOME=/home/dsipos/CodeGen/IMTools</value>
+    <value type="QString" >INFOPATH=/home/dsipos/.toast/armed/info:/tools/gnu/info</value>
+    <value type="QString" >KDEDIR=/usr</value>
+    <value type="QString" >KDE_IS_PRELINKED=1</value>
+    <value type="QString" >KDE_NO_IPV6=1</value>
+    <value type="QString" >LANG=en_US.iso885915</value>
+    <value type="QString" >LD_LIBRARY_PATH=/local/dsipos/qtsdk-2009.02/lib/qtcreator:/local/prg5/lib:/local/dev/lib:/usr/lib:/usr/local/lib:.:</value>
+    <value type="QString" >LESSOPEN=|/usr/bin/lesspipe.sh %s</value>
+    <value type="QString" >LIBRARY_PATH=/home/dsipos/.toast/armed/lib</value>
+    <value type="QString" >LOGNAME=dsipos</value>
+    <value type="QString" >LS=</value>
+    <value type="QString" >LS_COLORS=no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=01;32:*.cmd=01;32:*.exe=01;32:*.com=01;32:*.btm=01;32:*.bat=01;32:*.sh=01;32:*.csh=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.bz=01;31:*.tz=01;31:*.rpm=01;31:*.cpio=01;31:*.jpg=01;35:*.gif=01;35:*.bmp=01;35:*.xbm=01;35:*.xpm=01;35:*.png=01;35:*.tif=01;35:</value>
+    <value type="QString" >MAIL=/var/spool/mail/dsipos</value>
+    <value type="QString" >MANPATH=/local/prg5/man:/local/dev/man:/home/dsipos/.toast/armed/man:/local/dev/man:/tools/session/sde4/man:/usr/X11R6/man:/usr/local/man:/tools/gnu/man:/usr/netpbm/man:/usr/TeX/man:/usr/man</value>
+    <value type="QString" >MYSTUTT_WKSTATION=destgd0d00825.stgl.sel.alcatel.de</value>
+    <value type="QString" >MYSTUTT_WKSTATION_IP=149.204.107.43</value>
+    <value type="QString" >MYWKSTATION=rotimd0003t.tm.alcatel.ro</value>
+    <value type="QString" >MYWKSTATION_IP=135.247.161.50</value>
+    <value type="QString" >NNTPSERVER=nntphost</value>
+    <value type="QString" >PAGER=less</value>
+    <value type="QString" >PATH=/local/dsipos/qtsdk-2009.02/qt/bin:/local/prg5/bin:/local/dev/bin:/home/dsipos/.toast/armed/bin:/local/dev/bin:/home/dsipos/bin:/usr/X11R6/bin:/usr/local/bin:/usr/games:/usr/bin:/bin:/tools/gnu/bin:/tools/session/sde4/bin:/usr/sbin:/sbin:/etc:.</value>
+    <value type="QString" >PKG_CONFIG_PATH=/local/prg5/lib/pkgconfig:/local/dev/lib/pkgconfig:/local/dev/lib/pkgconfig:</value>
+    <value type="QString" >PRINTER=t0350</value>
+    <value type="QString" >PROJECT=TSD</value>
+    <value type="QString" >PWD=/local/src</value>
+    <value type="QString" >QTDIR=/local/dsipos/qtsdk-2009.02/qt</value>
+    <value type="QString" >QTINC=/usr/lib/qt-3.3/include</value>
+    <value type="QString" >QTLIB=/usr/lib/qt-3.3/lib</value>
+    <value type="QString" >REPOSITORYDIR=/home/dsipos/CodeGen/RUMP/Repository/TL1/TITAN</value>
+    <value type="QString" >RHOST=slsvvv.stgl.sel.alcatel.de</value>
+    <value type="QString" >RSH=rsh</value>
+    <value type="QString" >RUMP=/home/dsipos/CodeGen/RUMP</value>
+    <value type="QString" >RUMPHOME=/home/dsipos/CodeGen/RUMP</value>
+    <value type="QString" >SESSIONDIR=/tools/session/sde4</value>
+    <value type="QString" >SHELL=/bin/bash</value>
+    <value type="QString" >SHLVL=3</value>
+    <value type="QString" >SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass</value>
+    <value type="QString" >TERM=xterm</value>
+    <value type="QString" >TL1A=/phys/mfs/sx_tl1afrw/1641SX/SEGM/tl1a/</value>
+    <value type="QString" >TL1FRW=/phys/mfs/sx_tl1afrw/1641SX/SEGM/tl1afrw/</value>
+    <value type="QString" >TOOL_DOMAIN=GNU</value>
+    <value type="QString" >USER=dsipos</value>
+    <value type="QString" >WINDOWID=77594663</value>
+    <value type="QString" >WORK=/home/dsipos/work</value>
+    <value type="QString" >X11_RELEASE=6</value>
+    <value type="QString" >XAPPLRESDIR=/home/dsipos/X11/lib/app-defaults</value>
+    <value type="QString" >XBMLANGPATH=/tools/session/sde4/X11/include/pixmaps/%B:/tools/session/sde4/X11/include/bitmaps/%B</value>
+    <value type="QString" >XML_CATALOG_FILES=/home/dsipos/.toast/armed/etc/xml/toast-xml-catalog /etc/xml/toast-xml-catalog</value>
+    <value type="QString" >XTERM_SHELL=/bin/bash</value>
+    <value type="QString" >XTERM_VERSION=XTerm(215)</value>
+    <value type="QString" >XUSERFILESEARCHPATH=/home/dsipos/X11/lib/app-defaults/%N%C%S:/home/dsipos/X11/lib/app-defaults/%N:/tools/session/sde4/X11/lib/app-defaults/%N%C%S:/tools/session/sde4/X11/lib/app-defaults/%N:/usr/lib/X11/app-defaults/%N%C%S:/usr/lib/X11/app-defaults/%N</value>
+    <value type="QString" >__login_started=yes</value>
+    <value type="QString" >alias=() {  local name;
+ local value;
+ if [ $# -eq 0 ]; then
+ builtin alias;
+ return;
+ fi;
+ if [ $# -eq 1 ]; then
+ builtin alias "$@";
+ return;
+ fi;
+ name=$1;
+ shift;
+ value="$@";
+ if [ -z "$name" ]; then
+ builtin alias;
+ else
+ if [ -z "$value" ]; then
+ builtin alias ${name}="";
+ else
+ case "${value}" in 
+ *'!*'*)
+ echo "Warning: bash alias doesn't support csh like parameter passing using \!*." 1>&amp;2
+ ;;
+ esac;
+ builtin alias ${name}="$value";
+ fi;
+ fi
+}</value>
+    <value type="QString" >prefer_openwin=no</value>
+    <value type="QString" >want_clearcase=not-available</value>
+    <value type="QString" >want_openwin=no</value>
+    <value type="QString" >want_plan=yes</value>
+   </valuelist>
+   <valuelist key="abstractProcess.arguments" type="QVariantList" >
+    <value type="QString" >/home/dsipos/prg/qt_first/qt_first.pro</value>
+    <value type="QString" >-spec</value>
+    <value type="QString" >linux-g++</value>
+    <value type="QString" >-r</value>
+    <value type="QString" >CONFIG+=debug</value>
+   </valuelist>
+   <value key="abstractProcess.command" type="QString" >/local/dsipos/qtsdk-2009.02/qt/bin/qmake</value>
+   <value key="abstractProcess.enabled" type="bool" >false</value>
+   <value key="abstractProcess.workingDirectory" type="QString" >/home/dsipos/prg/qt_first</value>
+   <value key="buildConfiguration" type="int" >2</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfiguration-Debug-buildstep1</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Debug</value>
+   <valuelist key="abstractProcess.Environment" type="QVariantList" >
+    <value type="QString" >ARCH=i686</value>
+    <value type="QString" >CONFIGURE_ALIAS=pc-linux</value>
+    <value type="QString" >CONFIGURE_NAME=i686-linux</value>
+    <value type="QString" >CPATH=/home/dsipos/.toast/armed/include</value>
+    <value type="QString" >CVSROOT=/home/mibfrw/CVSRepository</value>
+    <value type="QString" >CVSUMASK=002</value>
+    <value type="QString" >CVS_RSH=ssh</value>
+    <value type="QString" >DESKTOP_STARTUP_ID=</value>
+    <value type="QString" >DISPLAY=rotimd0003t:0.0</value>
+    <value type="QString" >GENERATIONIFHOME=/home/dsiposCodeGen/GenerationIF</value>
+    <value type="QString" >GREP_COLOR=02;32</value>
+    <value type="QString" >GREP_OPTIONS=--color=auto</value>
+    <value type="QString" >G_BROKEN_FILENAMES=1</value>
+    <value type="QString" >HISTSIZE=100</value>
+    <value type="QString" >HOME=/home/dsipos</value>
+    <value type="QString" >HOST=rotimd0003t</value>
+    <value type="QString" >HOSTALIAS=rotimd0003t</value>
+    <value type="QString" >HOSTNAME=rotimd0003t</value>
+    <value type="QString" >HOST_ARCH=i686</value>
+    <value type="QString" >HTTP_PROXY=http://proxy-bell.net.alcatel.be:80</value>
+    <value type="QString" >HTTP_PROXY_PASS=blue7&amp;black</value>
+    <value type="QString" >HTTP_PROXY_USER=dumitrus</value>
+    <value type="QString" >IMTOOLS=/home/dsipos/CodeGen/IMTools</value>
+    <value type="QString" >IMTOOLSHOME=/home/dsipos/CodeGen/IMTools</value>
+    <value type="QString" >INFOPATH=/home/dsipos/.toast/armed/info:/tools/gnu/info</value>
+    <value type="QString" >KDEDIR=/usr</value>
+    <value type="QString" >KDE_IS_PRELINKED=1</value>
+    <value type="QString" >KDE_NO_IPV6=1</value>
+    <value type="QString" >LANG=en_US.iso885915</value>
+    <value type="QString" >LD_LIBRARY_PATH=/local/dsipos/qtsdk-2009.02/lib/qtcreator:/local/prg5/lib:/local/dev/lib:/usr/lib:/usr/local/lib:.:</value>
+    <value type="QString" >LESSOPEN=|/usr/bin/lesspipe.sh %s</value>
+    <value type="QString" >LIBRARY_PATH=/home/dsipos/.toast/armed/lib</value>
+    <value type="QString" >LOGNAME=dsipos</value>
+    <value type="QString" >LS=</value>
+    <value type="QString" >LS_COLORS=no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=01;32:*.cmd=01;32:*.exe=01;32:*.com=01;32:*.btm=01;32:*.bat=01;32:*.sh=01;32:*.csh=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.bz=01;31:*.tz=01;31:*.rpm=01;31:*.cpio=01;31:*.jpg=01;35:*.gif=01;35:*.bmp=01;35:*.xbm=01;35:*.xpm=01;35:*.png=01;35:*.tif=01;35:</value>
+    <value type="QString" >MAIL=/var/spool/mail/dsipos</value>
+    <value type="QString" >MANPATH=/local/prg5/man:/local/dev/man:/home/dsipos/.toast/armed/man:/local/dev/man:/tools/session/sde4/man:/usr/X11R6/man:/usr/local/man:/tools/gnu/man:/usr/netpbm/man:/usr/TeX/man:/usr/man</value>
+    <value type="QString" >MYSTUTT_WKSTATION=destgd0d00825.stgl.sel.alcatel.de</value>
+    <value type="QString" >MYSTUTT_WKSTATION_IP=149.204.107.43</value>
+    <value type="QString" >MYWKSTATION=rotimd0003t.tm.alcatel.ro</value>
+    <value type="QString" >MYWKSTATION_IP=135.247.161.50</value>
+    <value type="QString" >NNTPSERVER=nntphost</value>
+    <value type="QString" >PAGER=less</value>
+    <value type="QString" >PATH=/local/dsipos/qtsdk-2009.02/qt/bin:/local/prg5/bin:/local/dev/bin:/home/dsipos/.toast/armed/bin:/local/dev/bin:/home/dsipos/bin:/usr/X11R6/bin:/usr/local/bin:/usr/games:/usr/bin:/bin:/tools/gnu/bin:/tools/session/sde4/bin:/usr/sbin:/sbin:/etc:.</value>
+    <value type="QString" >PKG_CONFIG_PATH=/local/prg5/lib/pkgconfig:/local/dev/lib/pkgconfig:/local/dev/lib/pkgconfig:</value>
+    <value type="QString" >PRINTER=t0350</value>
+    <value type="QString" >PROJECT=TSD</value>
+    <value type="QString" >PWD=/local/src</value>
+    <value type="QString" >QTDIR=/local/dsipos/qtsdk-2009.02/qt</value>
+    <value type="QString" >QTINC=/usr/lib/qt-3.3/include</value>
+    <value type="QString" >QTLIB=/usr/lib/qt-3.3/lib</value>
+    <value type="QString" >REPOSITORYDIR=/home/dsipos/CodeGen/RUMP/Repository/TL1/TITAN</value>
+    <value type="QString" >RHOST=slsvvv.stgl.sel.alcatel.de</value>
+    <value type="QString" >RSH=rsh</value>
+    <value type="QString" >RUMP=/home/dsipos/CodeGen/RUMP</value>
+    <value type="QString" >RUMPHOME=/home/dsipos/CodeGen/RUMP</value>
+    <value type="QString" >SESSIONDIR=/tools/session/sde4</value>
+    <value type="QString" >SHELL=/bin/bash</value>
+    <value type="QString" >SHLVL=3</value>
+    <value type="QString" >SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass</value>
+    <value type="QString" >TERM=xterm</value>
+    <value type="QString" >TL1A=/phys/mfs/sx_tl1afrw/1641SX/SEGM/tl1a/</value>
+    <value type="QString" >TL1FRW=/phys/mfs/sx_tl1afrw/1641SX/SEGM/tl1afrw/</value>
+    <value type="QString" >TOOL_DOMAIN=GNU</value>
+    <value type="QString" >USER=dsipos</value>
+    <value type="QString" >WINDOWID=77594663</value>
+    <value type="QString" >WORK=/home/dsipos/work</value>
+    <value type="QString" >X11_RELEASE=6</value>
+    <value type="QString" >XAPPLRESDIR=/home/dsipos/X11/lib/app-defaults</value>
+    <value type="QString" >XBMLANGPATH=/tools/session/sde4/X11/include/pixmaps/%B:/tools/session/sde4/X11/include/bitmaps/%B</value>
+    <value type="QString" >XML_CATALOG_FILES=/home/dsipos/.toast/armed/etc/xml/toast-xml-catalog /etc/xml/toast-xml-catalog</value>
+    <value type="QString" >XTERM_SHELL=/bin/bash</value>
+    <value type="QString" >XTERM_VERSION=XTerm(215)</value>
+    <value type="QString" >XUSERFILESEARCHPATH=/home/dsipos/X11/lib/app-defaults/%N%C%S:/home/dsipos/X11/lib/app-defaults/%N:/tools/session/sde4/X11/lib/app-defaults/%N%C%S:/tools/session/sde4/X11/lib/app-defaults/%N:/usr/lib/X11/app-defaults/%N%C%S:/usr/lib/X11/app-defaults/%N</value>
+    <value type="QString" >__login_started=yes</value>
+    <value type="QString" >alias=() {  local name;
+ local value;
+ if [ $# -eq 0 ]; then
+ builtin alias;
+ return;
+ fi;
+ if [ $# -eq 1 ]; then
+ builtin alias "$@";
+ return;
+ fi;
+ name=$1;
+ shift;
+ value="$@";
+ if [ -z "$name" ]; then
+ builtin alias;
+ else
+ if [ -z "$value" ]; then
+ builtin alias ${name}="";
+ else
+ case "${value}" in 
+ *'!*'*)
+ echo "Warning: bash alias doesn't support csh like parameter passing using \!*." 1>&amp;2
+ ;;
+ esac;
+ builtin alias ${name}="$value";
+ fi;
+ fi
+}</value>
+    <value type="QString" >prefer_openwin=no</value>
+    <value type="QString" >want_clearcase=not-available</value>
+    <value type="QString" >want_openwin=no</value>
+    <value type="QString" >want_plan=yes</value>
+   </valuelist>
+   <valuelist key="abstractProcess.arguments" type="QVariantList" >
+    <value type="QString" >-w</value>
+   </valuelist>
+   <value key="abstractProcess.command" type="QString" >/usr/bin/make</value>
+   <value key="abstractProcess.enabled" type="bool" >true</value>
+   <value key="abstractProcess.workingDirectory" type="QString" >/home/dsipos/prg/qt_first</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfiguration-Debug-cleanstep0</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Debug</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfiguration-Release-buildstep0</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Release</value>
+   <value key="buildConfiguration" type="int" >0</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfiguration-Release-buildstep1</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Release</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfiguration-Release-cleanstep0</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Release</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfigurations</variable>
+  <valuelist type="QVariantList" >
+   <value type="QString" >Debug</value>
+   <value type="QString" >Release</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>buildstep0</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" ></value>
+   <value key="mkspec" type="QString" ></value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildstep1</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" ></value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildsteps</variable>
+  <valuelist type="QVariantList" >
+   <value type="QString" >trolltech.qt4projectmanager.qmake</value>
+   <value type="QString" >trolltech.qt4projectmanager.make</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>cleanstep0</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" ></value>
+   <value key="clean" type="bool" >true</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>cleansteps</variable>
+  <valuelist type="QVariantList" >
+   <value type="QString" >trolltech.qt4projectmanager.make</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>defaultFileEncoding</variable>
+  <value type="QByteArray" >System</value>
+ </data>
+ <data>
+  <variable>project</variable>
+  <valuemap type="QVariantMap" />
+ </data>
+</qtcreator>
