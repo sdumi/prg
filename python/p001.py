@@ -17,11 +17,12 @@ numbers
 
 import sys
 
-def gcd(a, b):
+def gcd_r(a, b):
     """
     we will use the euclidean algorithm
+    recursive :)
     """
-    print a, b
+    #print a, b
     if a == 0:
         return b
     if b == 0:
@@ -30,7 +31,25 @@ def gcd(a, b):
         return 1
     # make sure that a >= b:
     (a, b) = (b, a) if (a < b) else (a, b)
-    return gcd (a-b, b)
+    return gcd_r (a-b, b)
+
+def gcd(a, b):
+    """
+    we will use the euclidean algorithm
+    iterative :)
+    """
+    if a == 0:
+        return b
+    if b == 0:
+        return a
+    if a == 1 or b == 1:
+        return 1
+    # make sure that a >= b:
+    (a, b) = (b, a) if (a < b) else (a, b)
+    while b != 0:
+        a = a - b
+        (a, b) = (b, a) if (a < b) else (a, b)
+    return a
 
 def lcm(a, b):
     return (a*b)/gcd(a,b)
