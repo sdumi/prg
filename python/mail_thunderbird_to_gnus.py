@@ -19,7 +19,7 @@ def main(argv):
         usage()
         sys.exit(2)
     file = ""
-    outdir  = ""
+    outdir = ""
     startIndex = 0
     for opt, arg in opts:
         if opt in ("-h", "--help"):
