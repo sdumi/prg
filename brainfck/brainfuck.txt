@@ -1,0 +1,255 @@
+(--- This is the original documentation of the Brainfuck distribution ---)
+(--- This file only applies to bfi. For information about bfc, see bfc.txt )
+
+                          Cat's-Eye Technologies 
+                                      
+                                 Brainf***
+                                      
+       An 8-instruction Turing-complete computer programming language
+                                      
+          --- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+                                      
+                 Portable C source code and .b source files
+                                      
+   Brainf*** is a minimal language developed by Urban Mueller. While it
+   only has a total of eight instructions, it can solve any solvable
+   mathematical problem. The remainder of this page is a copy of the
+   original readme file. Unfortunately, the original 680x0 assembler code
+   is now lost.
+   
+   Yes, the language name contains a dirty word. For the sake of taste we
+   have decided to only imply what that word actually is.
+   
+This archive contains the following programs:
+
+*bfc          The compiler for the 'brainf***' language (240 bytes!)
+*bfc.asm      Source for the compiler
+*bfi          The interpreter for the 'brainf***' language
+ bfi.c        Source for the interpreter (portable)
+ src/         Some example programs in 'brainf***'
+ src/atoi.b   Reads a number from stdin
+ src/div10.b  Divides the number under the pointer by 10
+ src/hello.b  The ubiquitous "Hello World!"
+ src/mul10.b  Multiplies the number under the pointer by 10
+ src/prime.b  Computes the primes up the a variable limit
+ src/varia.b  Small program elements like SWAP, DUP etc.
+
+[ed. note: files marked with an asterisk * could not be recovered. cap]
+
+WHATS NEW
+=========
+
+Yes, I squeezed another ridiculous 56 bytes out of the compiler. They have
+their price, though: The new compiler requires OS 2.0, operates on a byte
+array instead of longwords, and generates executables that are always 64K
+in size. Apart from that the language hasn't changed. Again:
+***  OS 2.0 *required* for the compiler and the compiled programs  ***
+The interpreter works fine under any OS version. And yes, thanks to Chris
+Schneider for his ideas how to make the compiler shorter.
+
+[ed. note: Amiga OS version 2.0, not to be confused with OS/2. cap]
+
+THE LANGUAGE
+============
+
+The language 'brainf***' knows the following commands:
+
+ Cmd  Effect                                 Equivalent in C
+ ---  ------                                 ---------------
+ +    Increases element under pointer        array[p]++;
+ -    Decrases element under pointer         array[p]--;
+ >    Increases pointer                      p++;
+ <    Decreases pointer                      p--;
+ [    Starts loop, counter under pointer     while(array[p]) {
+ ]    Indicates end of loop                  }
+ .    Outputs ASCII code under pointer       putchar(array[p]);
+ ,    Reads char and stores ASCII under ptr  array[p]=getchar();
+
+All other characters are ignored. The 30000 array elements and p are being
+initialized to zero at the beginning.  Now while this seems to be a pretty
+useless language, it can be proven that it can compute every solvable
+mathematical problem (if we ignore the array size limit and the executable
+size limit).
+
+
+THE COMPILER
+============
+
+The compiler does not check for balanced brackets; they better be. It reads
+the source from stdin and writes the executable to stdout. Note that the
+executable is always 65536 bytes long, and usually won't be executable if
+brackets aren't balanced. OS 2.0 required for the compiler and the compiled
+program.
+
+
+THE INTERPRETER
+===============
+
+For debugging, there's also an interpreter. It expects the name of the
+program to  interpret on the command line and accepts an additional command:
+Whenever a '#' is met in the source and a second argument was passwd to
+the interpreter, the first few elements of the array are written to stdout
+as numbers
+
+
+   Enjoy
+
+     -Urban Mueller
+
+
+(--- End of the original Brainfuck documentation ---)
+
+(--- Begin of assembler source for the original compiler ---)
+
+	EXEOBJ
+	OUTPUT	bfc
+
+OBJSIZE	EQU	65536
+CODSIZE	EQU	32000
+
+read	EQU	-$2a
+write	EQU	-$30
+input	EQU	-$36
+output	EQU	-$3c
+closlib EQU	-$19e
+
+; d0
+; d1   len
+; d2
+; d3   1
+; d4   byte
+; d5   offset
+; d6   
+; d7
+
+; a0
+; a1
+; a2   stack
+; a3   cdptr
+; a4   4
+; a5   code
+; a6
+
+
+initcode:
+	dc.l	$3f3,0,1,0,0,OBJSIZE/4-9,$3e9,OBJSIZE/4-9
+
+	lea	(CODSIZE,pc),a5
+	moveq	#4,d0
+	move.l	d0,a4
+	move.l	(a4),a6
+	jsr	-810(a6)
+	move.l	d0,a6
+	moveq	#1,d3
+initcode2:
+
+
+
+clrmem
+	move.l	a5,a2
+	moveq	#-1,d5
+..	clr.b	(a2)+
+	dbra	d5,..
+	move.w	#$3f2,-(a2)
+	move.l	a5,a2
+
+
+
+	move.b	d3,(a5)
+mainloop
+	move.b	(a5),d4
+	lea	(code,pc),a3
+
+..	move.b	(a3)+,d5
+	move.b	(a3)+,d1
+	cmp.b	(a3)+,d4
+	blo.b	..
+	bne.b	advance
+	add.l	d5,a3
+
+copy	move.b	(a3)+,(a5)+
+	subq.b	#1,d1
+	bne.b	copy
+
+	addq.b	#8,d5
+	bcc.s	noloop
+	move.l	a5,-(a2)
+noloop
+
+	addq.b	#3,d5
+	bne.s	noendl
+	move.l	(a2)+,a0
+	move.l	a0,d0
+	sub.l	a5,d0
+	move.w	d0,(a5)+
+	neg.w	d0
+	subq.w	#4,d0
+	move.w	d0,-(a0)
+noendl
+
+
+advance
+	clr.b	(a5)
+readbyte
+	jsr	input(a6)
+	move.l	d0,d1
+ 	move.l	a5,d2
+	jsr	read(a6)
+readbyte2
+
+	tst.b	d4
+	bne.s	mainloop
+
+	move.l	a2,a5
+	swap	d3
+writebyte
+	jsr	output(a6)
+	move.l	d0,d1
+	move.l	a5,d2
+	jsr	write(a6)
+writebyte2
+
+cleanup
+	move.l	a6,a1
+	move.l	(a4),a6
+	jsr	closlib(a6)
+	moveq	#0,d0
+	rts
+cleanup2
+
+rightcode:
+	addq.l	#1,a5
+leftcode:
+	subq.l	#1,a5
+
+endwcode
+addcode:
+	addq.b	#1,(a5)
+subcode:
+	subq.b	#1,(a5)
+	dc.w	$6600
+endwcode2
+
+whilecode:
+	dc.w	$6000
+whilecode2
+
+code:
+endw:	dc.b	endwcode-endw-3,6,']'
+while:	dc.b	whilecode-while-3,4,'['
+right:	dc.b	rightcode-right-3,2,'>'
+left:	dc.b	leftcode-left-3,2,'<'
+
+out:	dc.b	writebyte-out-3,writebyte2-writebyte,'.'
+sub:	dc.b	subcode-sub-3,2,'-'
+in:	dc.b	readbyte-in-3,readbyte2-readbyte,','
+add:	dc.b	addcode-add-3,2,'+'
+
+beg:	dc.b	(initcode-beg-3)&$FF,initcode2-initcode,1
+end:	dc.b	cleanup-end-3,cleanup2-cleanup,0
+
+	dx.b	OBJSIZE+CODSIZE
+
+	END
+
+(--- End ---)

@@ -1,0 +1,140 @@
+
+		Bfc
+		===
+
+		Brainfuck revived
+
+$Id: bfc.txt,v 1.3 2001/02/05 13:07:26 atehwa-u Exp $
+
+	For basic language information, see the file "brainfuck.txt".
+
+History of this file
+
+	2: comments about techniques and extending brainfuck.
+
+	1: removed mentions about renaming the language. "brainfunct"
+        is now the name of this particular implementation.
+
+Introduction
+
+	When I spotted the bf language in the archives of Cats Eye
+	Technologies, I got immediately fascinated. I found out,
+	however, that the only implementation left for bf was the
+	interpreter -- which, all respects to Urban, was not too
+	efficient a way to run bf programs. 
+
+	[There are other implementations. bf has been implemented
+	countless times. Many of the implementations are compilers:
+	you can write a compiler for bf in a few lines of macro
+	code. Still, bfc remains the only compiler I know of that does
+	loop reductions, multi-combines instructions, and spots
+	"add-from-to" idioms.]
+
+	I thought about the task for a while and at last I realised I
+	had to try it -- to make a good, optimising compiler for bf
+	programs. Compiling to C was an obvious choice, not only for
+	gcc optimisations, but also because of portability. Bf idioms,
+	however, are so peculiar even for simple tasks, that I decided
+	to write some own optimisations, too. This has also the
+	advantage that the C programs take much less time to compile.
+
+	The compiler has no known bugs. If you get to know about one,
+	please inform the author about it.
+
+Burden of custom
+
+	The geek world has many traditions, one of which bf definitely
+	is. There are constantly proposals of how bf could be extended
+	to be more handy; or reduced, to be a more extreme tarpit. I
+	had such ideas, too, when I started writing bfc. After a year
+	or so of explaining these proposals, I realised that none of
+	them would retain the spirit of brainfuck: orthogonal, small,
+	hard-to-do-anything-sensible-with.
+
+	I think the obscene name is bad humor; but because people
+	usually refer to brainfuck as `bf' anyway, it's not that
+	important. When bfc was first done, I was thinking about
+	renaming brainfuck. I'm not anymore. :)
+
+Changes
+
+	There's no longer any debug command. I'll implement that if I
+	have the time to do that. One useful feature has been added:
+	`,' will set the location to zero on EOF. This should be an
+	acceptable aid, because the value of EOF depends on the
+	environment and testing for EOF in programs would make them
+	unportable.
+
+Usage
+
+	bfc < prog.b > prog.c 2> /dev/null
+	gcc -o prog -O3 prog.c
+
+	The compiler dumps tons and tons of debug output into
+	stderr. I had no time and no will to make an option not to
+	give the debug output. (What's better, it will irritate the
+	users of the bad'n'broken (t)csh.) The debug output might be
+	useful, actually -- you can learn much about your bugs and
+	common techniques by looking at it.
+
+	The possible usages include: any mathematical problem, string
+	processing (but see `problems'), entries to IOCCC, etc.
+
+Techniques
+
+	The file named `varia.b' contains some examples of ways to do
+	simple operations in bf. They are not as well-written as one
+	could hope, but they do show the basic ideas. For mathematical
+	problems, it is advisable to use the space like a result stack
+	-- and, maybe, for other problems, too. 
+
+	As a general rule, when you are thinking about how to do
+	something, always remember these things: 1. The only absolute
+	operation is []. The best example of this is CLR [-] or
+	[+]. 2. Flow control always zeroes some location. For this
+	reason, if you want to do a conditional with a value and
+	retain the value, you must DUP it. 3. If you have
+	variable-size data, interleave it with empty locations. This
+	will allow for transfering miscellaneous data over the
+	variable-size data.
+
+	Constants are usually most easily written with a
+	multiplication of two numbers, and some corrective
+	inc/dec's. If you need many similar constants in sequence,
+	consider using dup or reusing the old constant.
+
+	Surprisingly complex operations can be achieved by making
+	blocks like [-[-[-[-[-[->+<]]]]]] (the example is a safe
+	(saturating) decrement).
+
+	Abstraction can be achieved by using the tape as if it was a
+	stack. Subroutines can be simulated by blocks that check
+	whether a given number (their "address") is the current value.
+
+Problems
+
+	While being Turing-complete, brainfuck is not too
+	friendly. There is no way to do subroutine calls, so if you
+	have to do the same thing in different contexts, you have to
+	write the code again. You can circumvent this with defining
+	more complex execution semantics and a standard way of using
+	variables meaning "what to do next".
+
+	Another problem is that processing of variable-size data and
+	especially of large input chunks is almost unbearably
+	hard. One could argue, of course, that if it _can_ be done, it
+	shouldn't be made too easy.
+
+	One proposed variant of bf was such that it would allow for
+	easy manipulation of variable-sized data. The point was that
+	the commands would have "indirect-address" semantics, i.e.
+
+	+  --> mem[mem[p]]++;
+	-  --> mem[mem[p]]--;
+	>  --> p++;
+	<  --> p--;
+
+	and so on... 
+
+Panu Kalliokoski
+pkalliok@helsinki.fi

@@ -1,0 +1,5 @@
+export PATH=/local/dev/bin:$PATH
+export LD_LIBRARY_PATH=/local/dev/lib
+export PKG_CONFIG_PATH=/local/dev/lib/pkgconfig/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/local/dev/lib/mysql/
+php /home/dsipos/prg/php/RefreshNetworkAuto2.php

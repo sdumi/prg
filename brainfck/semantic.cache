@@ -1,0 +1,35 @@
+;; Object semantic.cache
+;; SEMANTICDB Tags save file
+(semanticdb-project-database "semantic.cache"
+  :file "semantic.cache"
+  :tables (list 
+   (semanticdb-table "bfc.c"
+    :file "bfc.c"
+    :pointmax 3084
+    :major-mode 'c-mode
+    :tokens '(("stdio.h" include t nil nil [164 182]) ("bfc.h" include nil nil nil [183 199]) ("toknames" variable "char" "{
+      \"Nop    \",
+      \"Inc    \",
+      \"Move   \",
+      \"Input  \",
+      \"Output \",
+      \"Set    \",
+      \"Add    \",
+      NULL
+}" ((typemodifiers "static") (dereference . 1) (pointer . 1)) nil nil [201 361]) ("queue" variable ("tok" type "class") nil ((typemodifiers "static") (pointer . 1)) nil nil [363 381]) ("bforec" function ("void") (("first" variable ("tok" type "class") nil ((pointer . 1)) nil nil [396 407]) ("" variable "void" nil nil nil nil [408 419])) nil nil nil [383 556]) ("dumpprog_1" function ("void") (("first" variable ("tok" type "class") nil ((pointer . 1)) nil nil [575 587])) nil nil nil [558 1515]) ("dumpprog" function ("void") (("first" variable ("tok" type "class") nil ((pointer . 1)) nil nil [1532 1544])) nil nil nil [1517 1745]) ("dumplist" function ("void") (("first" variable ("tok" type "class") nil ((pointer . 1)) nil nil [1762 1773]) ("ind" variable "int" nil nil nil nil [1774 1783])) nil nil nil [1747 2418]) ("indent" function ("void") (("ind" variable "int" nil nil nil nil [2433 2442])) nil nil nil [2420 2490]) ("main" function ("int") (("" variable "void" nil nil nil nil [2728 2734])) nil nil nil [2718 3082]))
+    )
+   (semanticdb-table "bfc.h"
+    :file "bfc.h"
+    :pointmax 941
+    :major-mode 'c++-mode
+    :tokens '(("__bfc_bfc_h__" variable nil nil ((const . t)) nil nil [153 177]) ("SMALL" variable nil nil ((const . t)) nil nil [176 196]) ("BIG" variable nil nil ((const . t)) nil nil [197 214]) ("OPT_ARR_SIZ" variable nil nil ((const . t)) nil nil [215 238]) ("type" type "enum" (("T_NOP" variable "int" nil ((const . t)) nil ((reparse-symbol . enumsubparts)) [258 264]) ("T_INC" variable "int" nil ((const . t)) nil ((reparse-symbol . enumsubparts)) [271 277]) ("T_MOV" variable "int" nil ((const . t)) nil ((reparse-symbol . enumsubparts)) [284 290]) ("T_INP" variable "int" nil ((const . t)) nil ((reparse-symbol . enumsubparts)) [297 303]) ("T_OUP" variable "int" nil ((const . t)) nil ((reparse-symbol . enumsubparts)) [310 316]) ("T_SET" variable "int" nil ((const . t)) nil ((reparse-symbol . enumsubparts)) [323 329]) ("T_ADD" variable "int" nil ((const . t)) nil ((reparse-symbol . enumsubparts)) [336 343])) nil nil nil nil [240 344]) ("tok" type "typedef" nil ("tok") ((typedef "tok" type "struct" (("type" variable "int" nil nil nil nil [373 382]) ("times" variable "int" nil nil nil nil [389 399]) ("offs" variable "int" nil nil nil nil [406 415]) ("ref_offs" variable "int" nil nil nil nil [422 435]) ("value" variable "int" nil nil nil nil [442 452]) ("c" variable ("tok" type "struct" nil nil nil nil) nil ((pointer . 1)) nil nil [459 473]) ("n" variable ("tok" type "struct" nil nil nil nil) nil ((pointer . 1)) nil nil [480 494])) nil nil nil)) nil nil [346 501]) ("bft" function ("void") (("first" variable ("tok" type "class") nil ((pointer . 1)) nil nil [535 547])) ((prototype . t)) nil nil [525 548]) ("get_tok" function ("tok" type "class") (("" variable "void" nil nil nil nil [562 567])) ((pointer . 1) (prototype . t)) nil nil [549 568]) ("bforec" function ("void") (("first" variable ("tok" type "class") nil ((pointer . 1)) nil nil [582 593]) ("" variable "void" nil nil nil nil [594 605])) ((prototype . t)) nil nil [569 614]) ("dumplist" function ("void") (("first" variable ("tok" type "class") nil ((pointer . 1)) nil nil [630 641]) ("ind" variable "int" nil nil nil nil [642 651])) ((prototype . t)) nil nil [615 652]) ("indent" function ("void") (("ind" variable "int" nil nil nil nil [666 675])) ((prototype . t)) nil nil [653 676]) ("bfo1" function ("void") (("first" variable ("tok" type "class") nil ((pointer . 1)) nil nil [688 700])) ((prototype . t)) nil nil [677 701]) ("bfo2" function ("void") (("first" variable ("tok" type "class") nil ((pointer . 1)) nil nil [752 764])) ((prototype . t)) nil nil [741 765]) ("bfo3" function ("void") (("first" variable ("tok" type "class") nil ((pointer . 1)) nil nil [803 815])) ((prototype . t)) nil nil [792 816]) ("bfo4" function ("void") (("first" variable ("tok" type "class") nil ((pointer . 1)) nil nil [849 861])) ((prototype . t)) nil nil [838 862]) ("bfo5" function ("void") (("first" variable ("tok" type "class") nil ((pointer . 1)) nil nil [897 909])) ((prototype . t)) nil nil [886 910]))
+    :unmatched-syntax '((semantic-list 605 . 611) (semantic-list 598 . 605))
+    )
+   (semanticdb-table "bfi.c"
+    :file "bfi.c"
+    :pointmax 991
+    :major-mode 'c-mode
+    :tokens '(("stdio.h" include t nil nil [1 19]) ("p" variable "int" nil nil nil nil [21 34]) ("r" variable "int" nil nil nil nil [21 34]) ("q" variable "int" nil nil nil nil [21 34]) ("a" variable "char" nil ((dereference . 1)) nil nil [35 69]) ("f" variable "char" nil ((dereference . 1)) nil nil [35 69]) ("b" variable "char" nil nil nil nil [35 69]) ("o" variable "char" nil nil nil nil [35 69]) ("s" variable "char" "f;" ((pointer . 1)) nil nil [35 69]) ("interpret" function ("void") (("c" variable "char" nil ((pointer . 1)) nil nil [86 94])) nil nil nil [71 827]) ("main" function ("int") (("argc" variable "int" nil nil nil nil [838 847]) ("argv" variable "char" nil ((dereference . 1) (pointer . 1)) nil nil [847 860])) nil nil nil [829 989]))
+    )
+   )
+  )
