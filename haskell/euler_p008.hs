@@ -3,6 +3,14 @@
 -- Find the greatest product of five consecutive digits in the 1000-digit number.
 -- 7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648950445244523161731856403098711121722383113622298934233803081353362766142828064444866452387493035890729629049156044077239071381051585930796086670172427121883998797908792274921901699720888093776657273330010533678812202354218097512545405947522435258490771167055601360483958644670632441572215539753697817977846174064955149290862569321978468622482839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450
 
+
+-- Note: initially I totally misunderstood the requirements: 
+--   a) first I thought that I need to create the product of consecutive digits (ie: 2*3*4*5*6, or 5*6*7*8*9) and find this product in the number: 720 or 15120... (I found 720 :))
+--   b) second I thought that I need to find the product of 5 consecutive ascending digits from the number itself... there were no 5 consecutive ascending digits in the number...
+--   c) finally... I just took the 5 digits starting with position 1, 2, ... and found the maximum of the products: a lot easier than my previous tries...
+-- No idea why my train of thought was so convoluted for this easy problem
+--
+
 splitNumber :: Integer -> [Integer]
 splitNumber n = if n < 10
                 then [n]
@@ -27,3 +35,24 @@ isInfixOf needle haystack = any (isPrefixOf needle) (tails haystack)
 
 consecutiveProd n = n*(n+1)*(n+2)*(n+3)*(n+4)
 b = map (reverse . splitNumber . consecutiveProd) [1..9]
+
+-- this will find the first product of consecutive numbers from a list
+tmpf (a:b:c:d:e:xs)
+    |((a + 4) == e) && ((b + 3) == e) && ((c + 2) == e) && ((d + 1) == e)  = a * b * c * d * e
+    | otherwise = if (length xs) == 0
+                  then 0
+                  else tmpf (b:c:d:e:head(xs):tail(xs))
+tmpf _ = 0
+
+maplist :: ([t] -> a) -> [t] -> [a]
+maplist _ [] = []
+maplist f l = (f l) : maplist f (tail(l))
+prodconsec l
+    | length l >= 5 = let a = l!!0
+                          b = l!!1
+                          c = l!!2
+                          d = l!!3
+                          e = l!!4
+                      in a * b * c * d * e
+    | otherwise = 0
+euler_p008 = maximum (maplist prodconsec a)
