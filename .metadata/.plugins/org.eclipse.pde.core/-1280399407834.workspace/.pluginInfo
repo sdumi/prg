@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+	<bundle bundleID="655" localization="plugin" name="%bundleName" project="net.sf.eclipsefp.haskell.doc.user" provider="%bundleVendor"/>
+	<bundle bundleID="658" class="net.sf.eclipsefp.haskell.haddock.HaddockPlugin" localization="plugin" name="%bundleName" project="net.sf.eclipsefp.haskell.haddock" provider="%bundleVendor"/>
+	<bundle bundleID="652" class="net.sf.eclipsefp.haskell.debug.core.internal.HaskellDebugCore" localization="plugin" name="%bundleName" project="net.sf.eclipsefp.haskell.debug.core" provider="%bundleVendor"/>
+	<bundle bundleID="657" localization="OSGI-INF/l10n/bundle" name="Test Plug-in" project="net.sf.eclipsefp.haskell.ghccompiler.test" provider="eclipsefp.sourceforge.net"/>
+	<bundle bundleID="664" localization="OSGI-INF/l10n/bundle" name="Haskell UI Test Plug-in" project="net.sf.eclipsefp.haskell.ui.test" provider="eclipsefp.sourceforge.net"/>
+	<bundle bundleID="648" class="net.sf.eclipsefp.haskell.core.jparser.JParserPlugin" localization="plugin" name="%bundleName" project="net.sf.eclipsefp.haskell.core.jparser" provider="%bundleVendor"/>
+	<bundle bundleID="662" localization="OSGI-INF/l10n/bundle" name="Haskell Test Plug-In" project="net.sf.eclipsefp.haskell.test"/>
+	<bundle bundleID="666" localization="plugin" name="%bundleName" project="org.easymock" provider="%bundleVendor">
+		<library name="lib/easymock.jar"/>
+	</bundle>
+	<bundle bundleID="650" class="net.sf.eclipsefp.haskell.core.parser.test.TestPlugin" localization="OSGI-INF/l10n/bundle" name="Parser Tests" project="net.sf.eclipsefp.haskell.core.parser.test" provider="eclipsefp.sourcefourge.net">
+		<library name="haskellcoreparsertest.jar"/>
+	</bundle>
+	<bundle bundleID="647" class="net.sf.eclipsefp.haskell.core.HaskellCorePlugin" localization="plugin" name="%bundleName" project="net.sf.eclipsefp.haskell.core" provider="%bundleVendor"/>
+	<bundle bundleID="656" class="net.sf.eclipsefp.haskell.ghccompiler.GhcCompilerPlugin" localization="plugin" name="%bundleName" project="net.sf.eclipsefp.haskell.ghccompiler" provider="%bundleVendor"/>
+	<bundle bundleID="665" localization="plugin" name="%bundleName" project="org.antlr" provider="%bundleVendor">
+		<library name="lib/antlr.jar"/>
+	</bundle>
+	<bundle bundleID="663" class="net.sf.eclipsefp.haskell.ui.HaskellUIPlugin" localization="plugin" name="%bundleName" project="net.sf.eclipsefp.haskell.ui" provider="%bundleVendor"/>
+	<bundle bundleID="659" class="net.sf.eclipsefp.haskell.hugs.HugsPlugin" localization="plugin" name="%bundleName" project="net.sf.eclipsefp.haskell.hugs" provider="%bundleVendor"/>
+	<bundle bundleID="651" localization="OSGI-INF/l10n/bundle" name="Plug-in for testing Haskell Core" project="net.sf.eclipsefp.haskell.core.test" provider="eclipsefp.sourceforge.net"/>
+	<bundle bundleID="654" class="net.sf.eclipsefp.haskell.debug.ui.test.internal.Activator" localization="OSGI-INF/l10n/bundle" name="Haskell Debug UI Tests" project="net.sf.eclipsefp.haskell.debug.ui.test" provider="The EclipseFP Project"/>
+	<bundle bundleID="661" localization="OSGI-INF/l10n/bundle" name="Scion client Test Plug-in" project="net.sf.eclipsefp.haskell.scion.client.test" provider="eclipsefp.sourceforge.net"/>
+	<bundle bundleID="646" localization="plugin" name="%bundleName" project="net.sf.eclipsefp.haskell" provider="%bundleVendor"/>
+	<bundle bundleID="649" localization="OSGI-INF/l10n/bundle" name="Plugin for testing EclipseFP Haskell JParser" project="net.sf.eclipsefp.haskell.core.jparser.test" provider="eclipsefp.sourceforge.net"/>
+	<bundle bundleID="653" class="net.sf.eclipsefp.haskell.debug.ui.internal.HaskellDebugUI" localization="plugin" name="%bundleName" project="net.sf.eclipsefp.haskell.debug.ui" provider="%bundleVendor"/>
+	<bundle bundleID="660" class="net.sf.eclipsefp.haskell.scion.client.ScionPlugin" localization="plugin" name="Scion client for EclipseFP" project="net.sf.eclipsefp.haskell.scion.client" provider="Thomas ten Cate &lt;ttencate@gmail.com&gt;"/>
+</map>

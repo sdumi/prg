@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Language" content="en-us">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Before you begin</title>
+	<link rel="stylesheet" type="text/css" href="../help.css">
+</head>
+<body>
+<h2>Before you begin</h2>
+
+<p>Depending on how you obtained the CDT, you might have also received
+a toolchain with a built-in CDT integration.
+However, if you downloaded the CDT from the Eclipse repository, then you will require a toolchain before
+you can build and debug any projects.</p>
+
+<p>The standard CDT supports integration with the GNU toolchain.
+This includes GNU's make, gcc compiler, and gdb debugger utilities.
+If you require a toolchain to build software for your development host, this
+is the best choice to get started.
+
+<p>Each platform that runs the CDT requires different steps to acquire this toolchain.</p>
+
+<h3>Windows</h3>
+<p>For windows, MinGW and Cygwin are the two main platform choices for acquiring the GNU toolchain.
+It is important to understand the difference between them.
+Cygwin produces executables that use the Cygwin POSIX runtime. Note that this runtime is GPL licensed.
+MinGW produces native Windows executables that do not require a separate runtime.</p>
+<ul>
+<li><p>For <strong>MinGW</strong>, the recommended method to get the toolchain is to install it
+from the Wascana project at Eclipse Labs,
+<a href="http://www.eclipselabs.org/p/wascana">http://www.eclipselabs.org/p/wascana</a>.
+Wascana includes the MinGW toolchain as well as a number of open source libraries that can be used
+for Windows development.
+See the Wascana site for installation instructions.</p><br>
+<p>As an alternative, the MinGW site itself, <a href="http://www.mingw.org">http://www.mingw.org</a>
+also has an installer. The CDT will find that install if it is placed in the default C:\MinGW
+directory.</p></li><br>
+<li><p><strong>Cygwin</strong> can be install from the Cygwin site at
+<a href="http://www.cygwin.com">http://www.cygwin.com</a>. You need to manually select
+the gcc, gdb, and make packages to install the toolchain.</p></li>
+</ul>
+
+<h3>Linux</h3>
+<p>All Linux distributions include the GNU toolchain. They may not, however, be installed by default.
+For instructions about installing the GNU toolchain for Linux, see the instructions for your particular distribution.</p>
+
+<h3>Mac OS X</h3>
+The CDT supports the Apple GNU toolchain that is included in with the Xcode IDE. It can be downloaded
+from the Apple's developer site, <a href="http://developer.apple.com/">http://developer.apple.com</a>
+
+<h3>Other Platforms</h3>
+<p>The GNU toolchain is supported on all platforms that the CDT supports. For instructions about installing the GNU toolchain
+on your platform, see your platform vendor.</p>
+
+<p align="left"> <img border="0" src="../images/ngref.gif" ALT="Related reference" width="143" height="21">  <br>
+  <a href="../concepts/cdt_o_home.htm">CDT Home</a><br>
+  
+<p align="left"> <img border="0" src="../images/ngtasks.gif" ALT="Related tasks"> <br>
+  <a href="../tasks/cdt_t_manualbuild.htm">Building Manually</a>
+</p>
+<p><img src="../images/ng00_04a.gif" ALT="QNX Copyright Statement" > 
+</p>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="/local/dev/jdk1.6.0_13" version="1.6.0_13">
+<bootpath>
+<entry path="/local/dev/jdk1.6.0_13/jre/lib/resources.jar"/>
+<entry path="/local/dev/jdk1.6.0_13/jre/lib/rt.jar"/>
+<entry path="/local/dev/jdk1.6.0_13/jre/lib/sunrsasign.jar"/>
+<entry path="/local/dev/jdk1.6.0_13/jre/lib/jsse.jar"/>
+<entry path="/local/dev/jdk1.6.0_13/jre/lib/jce.jar"/>
+<entry path="/local/dev/jdk1.6.0_13/jre/lib/charsets.jar"/>
+<entry path="/local/dev/jdk1.6.0_13/jre/classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="/local/dev/jdk1.6.0_13/jre/lib/ext"/>
+<entry path="/usr/java/packages/lib/ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/local/dev/jdk1.6.0_13/jre/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>
