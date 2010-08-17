@@ -35,6 +35,9 @@ triangleList = map triangle [1..]
 triangle n = (n * (n + 1)) `div` 2
 
 --primeFactors in problem_3
+-- this very efficient solution was taken from 
+-- http://www.haskell.org/haskellwiki/Euler_problems/11_to_20
+-- not sure that by myself I would have found the trick to count nDivisors...
 problem_12 = head $ filter ((> 500) . nDivisors) triangleNumbers
   where nDivisors n = product $ map ((+1) . length) (group (primeFactors n))    
         triangleNumbers = scanl1 (+) [1..]
