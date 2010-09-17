@@ -1,0 +1,47 @@
+<html>
+<head>
+  <title>Canvas tutorial 06</title>
+  <script type="text/javascript">
+    function draw()
+    {
+	var canvas = document.getElementById('tutorial');
+	if (canvas.getContext)
+	{
+	    var ctx = canvas.getContext('2d');
+
+	    // some filled arcs... some unfilled :)
+	    for (var i=0; i<4; i++)
+	    {
+		for (var j=0; j<3; j++)
+		{
+		    ctx.beginPath();
+		    var x             = 25+j*50;               // x coordinate
+		    var y             = 25+i*50;               // y coordinate
+		    var radius        = 20;                    // arc radius
+		    var startAngle    = 0;                     // starting point on circle
+		    var endAngle      = Math.PI+(Math.PI*j)/2; // end point on circle
+		    var anticlockwise = (i%2==0)?false:true;   // clockwise or not
+		    ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+		    if (i>1)
+		    {
+			ctx.fill();
+		    } else
+		    {
+			ctx.stroke();
+		    }
+		}
+	    }
+	}
+    }
+  </script>
+  <style type="text/css">
+    canvas { border: 1px solid black; }
+  </style>
+</head>
+<body onload="draw();">
+  <h2>Erm... HI!</h2>
+  my current canvas test: <em>arcs</em><br/>
+  <canvas id="tutorial" width="250" height="350"></canvas>
+  <h3>That was all...</h3>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<html>
+<head>
+  <title>Canvas tutorial 12</title>
+  <script type="text/javascript">
+    function draw()
+    {
+	var canvas = document.getElementById('tutorial');
+	if (canvas.getContext)
+	{
+	    var ctx = canvas.getContext('2d');
+	    ctx.save();
+	    // background:
+	    ctx.fillStyle = 'rgb(255, 221, 0)';
+	    ctx.fillRect(0, 0, 150, 37.5);
+	    ctx.fillStyle = 'rgb(102, 204, 0)';
+	    ctx.fillRect(0, 37.5, 150, 37.5);
+	    ctx.fillStyle = 'rgb(0, 153, 255)';
+	    ctx.fillRect(0, 75, 150, 37.5);
+	    ctx.fillStyle = 'rgb(255, 51, 0)';
+	    ctx.fillRect(0, 112.5, 150, 37.5);
+	    
+	    for (var i=0; i < 10; i++)
+	    {
+		ctx.fillStyle='rgba(255, 255, 255, '+(i+1)/10+')';
+		for (var j = 0; j < 4; j++)
+		{
+		    ctx.fillRect(5+i*14, 5+j*37.5, 14, 27.5);
+		}
+	    }
+	    
+	    /////////////
+	    ctx.restore();
+	    ctx.translate(0, 160);
+	    // background:
+	    ctx.fillStyle = 'rgb(255, 221, 0)';
+	    ctx.fillRect(0, 0, 150, 37.5);
+	    ctx.fillStyle = 'rgb(102, 204, 0)';
+	    ctx.fillRect(0, 37.5, 150, 37.5);
+	    ctx.fillStyle = 'rgb(0, 153, 255)';
+	    ctx.fillRect(0, 75, 150, 37.5);
+	    ctx.fillStyle = 'rgb(255, 51, 0)';
+	    ctx.fillRect(0, 112.5, 150, 37.5);
+	}
+    }
+  </script>
+  <style type="text/css">
+    canvas { border: 1px solid black; }
+  </style>
+</head>
+<body onload="draw();">
+  <h2>Erm... HI!</h2>
+  my current canvas test: <em>styles and colors... and transparency</em><br/>
+  <canvas id="tutorial" width="250" height="350"></canvas>
+  <h3>That was all...</h3>
+</body>
+</html>

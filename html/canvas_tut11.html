@@ -1,0 +1,69 @@
+<html>
+<head>
+  <title>Canvas tutorial 11</title>
+  <script type="text/javascript">
+    function draw()
+    {
+	var canvas = document.getElementById('tutorial');
+	if (canvas.getContext)
+	{
+	    var ctx = canvas.getContext('2d');
+	    ctx.save();
+	    ctx.fillStyle = '#FD0';
+	    ctx.fillRect(0, 0, 75, 75);
+	    ctx.fillStyle = '#6C0';
+	    ctx.fillRect(75, 0, 75, 75);
+	    ctx.fillStyle = '#09F';
+	    ctx.fillRect(0, 75, 75, 75);
+	    ctx.fillStyle = '#F30';
+	    ctx.fillRect(75, 75, 75, 75);
+	    ctx.fillStyle = '#FFF';
+
+	    ctx.save();
+	    ctx.globalAlpha = 0.2;
+
+	    for (var i=0; i<7; i++)
+	    {
+		ctx.beginPath();
+		ctx.arc(75, 75, 10+10*i, 0, Math.PI*2, true);
+		ctx.fill();
+	    }
+	    ctx.restore();
+
+	    /////////////
+	    ctx.translate(0, 160);
+
+	    ctx.fillStyle = '#FD0';
+	    ctx.fillRect(0, 0, 75, 75);
+	    ctx.fillStyle = '#6C0';
+	    ctx.fillRect(75, 0, 75, 75);
+	    ctx.fillStyle = '#09F';
+	    ctx.fillRect(0, 75, 75, 75);
+	    ctx.fillStyle = '#F30';
+	    ctx.fillRect(75, 75, 75, 75);
+	    ctx.fillStyle = '#000';
+
+	    ctx.save();
+	    ctx.globalAlpha = 0.3;
+
+	    for (var i=0; i<7; i++)
+	    {
+		ctx.beginPath();
+		ctx.arc(75, 75, 10+10*i, 0, Math.PI*2, true);
+		ctx.fill();
+	    }
+	    ctx.restore();
+	}
+    }
+  </script>
+  <style type="text/css">
+    canvas { border: 1px solid black; }
+  </style>
+</head>
+<body onload="draw();">
+  <h2>Erm... HI!</h2>
+  my current canvas test: <em>styles and colors... and transparency</em><br/>
+  <canvas id="tutorial" width="250" height="350"></canvas>
+  <h3>That was all...</h3>
+</body>
+</html>

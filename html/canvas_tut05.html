@@ -1,0 +1,38 @@
+<html>
+<head>
+  <title>Canvas tutorial 05</title>
+  <script type="text/javascript">
+    function draw()
+    {
+	var canvas = document.getElementById('tutorial');
+	if (canvas.getContext)
+	{
+	    var ctx = canvas.getContext('2d');
+
+	    // Filled triangle
+	    ctx.beginPath();
+	    ctx.moveTo(25, 25);
+	    ctx.lineTo(105, 25);
+	    ctx.lineTo(25, 105);
+	    ctx.fill();
+	    
+	    ctx.beginPath();
+	    ctx.moveTo(125, 125);
+	    ctx.lineTo(125, 45);
+	    ctx.lineTo(45, 125);
+	    ctx.closePath();
+	    ctx.stroke();
+	}
+    }
+  </script>
+  <style type="text/css">
+    canvas { border: 1px solid black; }
+  </style>
+</head>
+<body onload="draw();">
+  <h2>Erm... HI!</h2>
+  my current canvas test:<br/>
+  <canvas id="tutorial" width="150" height="150"></canvas>
+  <h3>That was all...</h3>
+</body>
+</html>

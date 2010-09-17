@@ -1,0 +1,36 @@
+<html>
+<head>
+  <title>Canvas tutorial 08</title>
+  <script type="text/javascript">
+    function draw()
+    {
+	var canvas = document.getElementById('tutorial');
+	if (canvas.getContext)
+	{
+	    var ctx = canvas.getContext('2d');
+	    var myImage = new Image();
+	    myImage.src = '/media/img/canvas.png';
+	    myImage.onload = function()
+	    {
+		ctx.drawImage(myImage, 0, 0);
+		ctx.beginPath();  
+		ctx.moveTo(30,96);  
+		ctx.lineTo(70,66);  
+		ctx.lineTo(103,76);  
+		ctx.lineTo(170,15);  
+		ctx.stroke();  
+	    }
+	}
+    }
+  </script>
+  <style type="text/css">
+    canvas { border: 1px solid black; }
+  </style>
+</head>
+<body onload="draw();">
+  <h2>Erm... HI!</h2>
+  my current canvas test: <em>images</em><br/>
+  <canvas id="tutorial" width="250" height="350"></canvas>
+  <h3>That was all...</h3>
+</body>
+</html>

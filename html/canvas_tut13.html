@@ -1,0 +1,45 @@
+<html>
+<head>
+  <title>Canvas tutorial 13</title>
+  <script type="text/javascript">
+    function draw()
+    {
+	var canvas = document.getElementById('tutorial');
+	if (canvas.getContext)
+	{
+	    var ctx = canvas.getContext('2d');
+	    ctx.save();
+	    for (var i = 0; i < 10; i++)
+	    {
+		ctx.lineWidth = i+1;
+		ctx.beginPath();
+		ctx.moveTo(5+i*14, 5);
+		ctx.lineTo(5+i*14, 140);
+		ctx.stroke();
+	    }
+	    /////////////
+	    ctx.restore();
+	    ctx.translate(0, 160);
+	    for (var i = 0; i < 10; i++)
+	    {
+		ctx.lineWidth = i+1;
+		var pad = (i%2==0)?0.5:0;
+		ctx.beginPath();
+		ctx.moveTo(5+i*14+pad, 5);
+		ctx.lineTo(5+i*14+pad, 140);
+		ctx.stroke();
+	    }
+	}
+    }
+  </script>
+  <style type="text/css">
+    canvas { border: 1px solid black; }
+  </style>
+</head>
+<body onload="draw();">
+  <h2>Erm... HI!</h2>
+  my current canvas test: <em>styles and colors... lines</em><br/>
+  <canvas id="tutorial" width="250" height="350"></canvas>
+  <h3>That was all...</h3>
+</body>
+</html>
