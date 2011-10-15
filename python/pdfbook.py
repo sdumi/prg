@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/usr/bin/env python2.7
 import sys
 import getopt
 import zlib
@@ -24,13 +24,16 @@ _oneA4Pdf = zlib.decompress(base64.decodestring(_oneA4PdfZip64))
 def getArgs(argv):
     try:
         opts, args = getopt.getopt(argv,
-                                   "hf:o:",
-                                   ["help", "file=", "output="])
+                                   "hf:o:g:b:a:s:c:",
+                                   ["help", "file=", "output=", "groupsize=", "beforepad=", "afterpad=", "startpage=", "crop="])
     except getopt.GetoptError:
         usage()
         sys.exit(1)
-    inputFrom  = ""
-    output     = ""
+    groupSize = 0
+    beforePad = 0
+    afterPad  = 0
+    startPage = 0
+    cropSize  = 0
     for opt, arg in opts:
         if opt in ("-h", "--help"):
             usage()
@@ -39,65 +42,109 @@ def getArgs(argv):
             fileInput = arg
         elif opt in ("-o", "--output"):
             fileOutput = arg
+        elif opt in ("-g", "--groupsize"):
+            groupSize = int(arg)
+        elif opt in ("-b", "--beforepad"):
+            beforePad = int(arg)
+        elif opt in ("-a", "--afterpad"):
+            afterPad = int(arg)
+        elif opt in ("-s", "--startpage"):
+            startPage = int(arg)
+        elif opt in ("-c", "--crop"):
+            cropSize = int(arg)
+            
     if (fileInput == "") or (fileOutput == ""): 
         usage()
         sys.exit(1)
-    return (fileInput, fileOutput)
+    return (fileInput, fileOutput, groupSize, beforePad, afterPad, startPage, cropSize)
 
 def usage():
     print sys.argv[0], " OPTIONS"
     print "OPTIONS:"
-    print "  -h                 : display help and exit. OPTIONAL"
-    print "  -f, --file=name    : PDF input file. MANDATORY"
-    print "  -o, --ouput=name   : outpuf file. MANDATORY"
+    print "  -h                     : display help and exit. OPTIONAL"
+    print "  -f, --file=name        : PDF input file. MANDATORY"
+    print "  -o, --ouput=name       : outpuf file. MANDATORY"
+    print "  -g, --groupsize=size   : number of pages in a group (rounded to the next multiple of 4). OPTIONAL"
+    print "                           default: number of pages in input document"
+    print "  -b, --beforepad=size   : number of blank pages to be inserted at the beginning of document.OPTIONAL"
+    print "                           default: 0"
+    print "  -a, --afterpad=size    : minimum number of blank pages to be inserted at the end of document. OPTIONAL"
+    print "                           default: whatever needed to make the output pages a multiple of 4"
+    print "  -s, --startpage=nr     : start page from input document. OPTIONAL"
+    print "                           default: 0"
+    print "  -c, --crop=nr          : how much to crop. OPTIONAL"
+    print "                           default: 0"
 
-def getPageOrEmpty(input, page):
-    pages = input.getNumPages()
-    if page < pages:
-        return input.getPage(page)
-    else:
-        # create empty page
-        buf = StringIO()
-        buf.write(_oneA4Pdf)
-        emptyReader = PdfFileReader(buf)
-        return emptyReader.getPage(0)
-        
-def main(argv):
-    inputFile, outputFile = getArgs(argv)
-    input=PdfFileReader(file(inputFile, "rb"))
-    output=PdfFileWriter()
+def createEmptyPage():
+    # create empty page
+    buf = StringIO()
+    buf.write(_oneA4Pdf)
+    emptyReader = PdfFileReader(buf)
+    return emptyReader.getPage(0)
 
-    pages = input.getNumPages()
-    if pages % 4 != 0:
-        pages += 4 - (pages % 4)
+def cropPage_L(page, crop):
+    page.cropBox.lowerLeft=(crop, 0)
+    return page
 
+def cropPage_R(page, crop):
+    page.cropBox.lowerRight=(page.cropBox.getLowerRight_x()-crop,0)
+    return page
+
+def processGroup(output, group, crop):
+    if (not group):
+        return
+    if len(group) % 4 != 0:
+        print "Something wrong happened: group size not multiple of 4:", len(group)
+        sys.exit(1)
+    pages = len(group)
     # create an A4 file  (4 pages in the right order):
     for i in range (0, pages / 4):
         # first add the last page
         lastPage = pages - (i * 2) - 1
-        output.addPage(getPageOrEmpty(input, lastPage ))
+        output.addPage(cropPage_L(group[lastPage], crop))
         # add the first page:
         firstPage = i * 2
-        output.addPage(getPageOrEmpty(input, firstPage))
+        output.addPage(cropPage_R(group[firstPage], crop))
         # add the second page:
-        output.addPage(getPageOrEmpty(input, firstPage + 1))
+        output.addPage(cropPage_L(group[firstPage + 1], crop))
         # add the page before the last one:
-        output.addPage(getPageOrEmpty(input, lastPage - 1))
+        output.addPage(cropPage_R(group[lastPage - 1], crop))
+
+def main(argv):
+    inputFile, outputFile, groupSize, beforePad, afterPad, startPage, cropSize = getArgs(argv)
+    print inputFile, outputFile, groupSize, beforePad, afterPad, startPage
+    if groupSize % 4 != 0:
+        groupSize += 4 - (groupSize % 4)
+    print groupSize
+
+    input=PdfFileReader(file(inputFile, "rb"))
+    output=PdfFileWriter()
+
+    # take pages from input document. add blank pages at the beginning or the end...
+    emptyPage = createEmptyPage()
+    inp = []
+    for i in range(0, beforePad):
+        inp.append(emptyPage)
+    inp.extend([input.pages[x] for x in range(startPage, input.getNumPages())])
+
+    extra = 0
+    pages = len(inp) + afterPad
+    if pages % 4 != 0:
+        extra += 4 - (pages % 4)
     
-                       
-    # output.addPage(input.getPage(11))
-    # output.addPage(input.getPage(0))
-    # output.addPage(input.getPage(1))
-    # output.addPage(input.getPage(10))
-    # output.addPage(input.getPage(9))
-    # output.addPage(input.getPage(2))
-    # output.addPage(input.getPage(3))
-    # output.addPage(input.getPage(8))
-    # output.addPage(input.getPage(7))
-    # output.addPage(input.getPage(4))
-    # output.addPage(input.getPage(5))
-    # output.addPage(input.getPage(6))
-    
+    for i in range(0, afterPad + extra):
+        inp.append(emptyPage)
+    pages = len(inp)
+
+    # now we have the pages in inp. split them in groups and process each group separately
+    group = []
+    for p in inp:
+        group.append(p)
+        if len(group) == groupSize:
+            processGroup(output, group, cropSize)
+            group = []
+    processGroup(output, group, cropSize)
+                           
     outputStream=file(outputFile, "wb")
     output.write(outputStream)
     outputStream.close()
